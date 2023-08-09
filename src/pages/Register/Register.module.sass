@@ -1,0 +1,43 @@
+
+@use './../../constants/_vars' as *
+
+.section
+  width: 28em
+  @extend %flexbox-centralized
+  flex-direction: column
+  &Title
+    @extend %title-font
+    align-self: start
+  &SubTitle
+    @extend %normal-font
+    align-self: start
+  &Form
+    margin-top: 3.5em
+    @extend %flexbox-centralized
+    flex-direction: column
+    width: 100%
+    gap: 1em
+    &Fields
+      @extend %flexbox-centralized
+      justify-content: space-between
+      width: 100%
+      > input
+        border: 1px solid white
+        border-radius: 50px
+        height: 3em
+        width: 19em
+        background: #26292c
+        outline: none
+        padding: 0 22px
+    &Submit
+      margin-top: 1rem
+      background: $color-button
+      width: 100%
+      height: 3.5rem
+      border-radius: 25px
+      border: 0
+      font-size: 1.5em
+      font-weight: 800
+      transition: all 0.3s
+      &:hover
+        transform: scale(0.95)

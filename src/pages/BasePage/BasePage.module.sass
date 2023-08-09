@@ -1,0 +1,28 @@
+
+@use './../../constants/_vars' as *
+
+
+.page
+  @extend %page-container
+  margin: 2em auto
+  height: 70vh
+  &Logo
+    
+  &Title
+    margin-top: 2em
+  
+  &Hr
+
+  &Inputs
+    @extend %flexbox-centralized
+    margin-top: 2em
+
+
+@media(max-width: 1200px)
+  .page
+    font-size: 12px
+
+@media(max-width: 800px)
+  .page
+    grid-template-columns: 1fr
+    

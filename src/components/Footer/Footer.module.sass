@@ -1,0 +1,24 @@
+
+@use './../../constants/_vars' as *
+
+.container
+  width: 100vw
+  height: 18.75em
+  background: $secondary-color
+  p, li
+    color: white
+
+.footer
+  @extend %page-container
+  padding: 5em 0
+  &Top
+    @extend %flexbox-centralized
+    justify-content: space-between
+    &Navs
+      @extend %flexbox-centralized
+      gap: 2.5em
+  &Bottom
+    @extend %flexbox-centralized
+    margin-top: 2em
+    gap: 1em
+

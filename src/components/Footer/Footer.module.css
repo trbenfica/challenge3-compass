@@ -1,0 +1,35 @@
+.footerTop, .footerTopNavs, .footerBottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 100vw;
+  height: 18.75em;
+  background: #FC8019;
+}
+.container p, .container li {
+  color: white;
+}
+
+.footer {
+  padding: 5em 0;
+}
+.footerTop {
+  justify-content: space-between;
+}
+.footerTopNavs {
+  gap: 2.5em;
+}
+.footerBottom {
+  margin-top: 2em;
+  gap: 1em;
+}
+
+/*# sourceMappingURL=Footer.module.css.map */

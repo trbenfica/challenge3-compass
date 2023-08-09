@@ -1,0 +1,34 @@
+.pageInputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.page {
+  margin: 2em auto;
+  height: 70vh;
+}
+.pageTitle {
+  margin-top: 2em;
+}
+.pageInputs {
+  margin-top: 2em;
+}
+
+@media (max-width: 1200px) {
+  .page {
+    font-size: 12px;
+  }
+}
+@media (max-width: 800px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*# sourceMappingURL=BasePage.module.css.map */

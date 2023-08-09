@@ -1,0 +1,59 @@
+.section, .sectionForm, .sectionFormFields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionTitle {
+  font: 400 60px Mulish;
+}
+
+.sectionSubTitle {
+  font: 400 16px Mulish;
+}
+
+.section {
+  width: 28em;
+  flex-direction: column;
+}
+.sectionTitle {
+  align-self: start;
+}
+.sectionSubTitle {
+  align-self: start;
+}
+.sectionForm {
+  margin-top: 3.5em;
+  flex-direction: column;
+  width: 100%;
+  gap: 1em;
+}
+.sectionFormFields {
+  justify-content: space-between;
+  width: 100%;
+}
+.sectionFormFields > input {
+  border: 1px solid white;
+  border-radius: 50px;
+  height: 3em;
+  width: 19em;
+  background: #26292c;
+  outline: none;
+  padding: 0 22px;
+}
+.sectionFormSubmit {
+  margin-top: 1rem;
+  background: #FC8019;
+  width: 100%;
+  height: 3.5rem;
+  border-radius: 25px;
+  border: 0;
+  font-size: 1.5em;
+  font-weight: 800;
+  transition: all 0.3s;
+}
+.sectionFormSubmit:hover {
+  transform: scale(0.95);
+}
+
+/*# sourceMappingURL=Register.module.css.map */
