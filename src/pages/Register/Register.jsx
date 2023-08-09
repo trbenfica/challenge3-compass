@@ -1,5 +1,5 @@
 
-import styles from './Register.module.css';
+import styles from '../Login/FormItems.module.sass';
 import useInput from '../../hooks/use-input';
 
 export default function Register() {
@@ -7,55 +7,32 @@ export default function Register() {
     event.preventDefault();
     if (formIsValid) {
       console.log('submetido');
-      firstNameReset();
+      fullNameReset();
       passwordReset();
+      usernameReset();
+      emailReset();
+      passwordReset();
+      password2Reset();
     }
   };
 
   const {
-    value: firstName,
-    isValid: firstNameIsValid,
-    hasError: firstNameHasError,
-    valueChangeHandler: firstNameHandler,
-    inputBlurHandler: firstNameBlur,
-    reset: firstNameReset
+    value: fullName,
+    isValid: fullNameIsValid,
+    hasError: fullNameHasError,
+    valueChangeHandler: fullNameHandler,
+    inputBlurHandler: fullNameBlur,
+    reset: fullNameReset
   } = useInput(value => value.trim().length > 0);
 
   const {
-    value: lastName,
-    isValid: lastNameIsValid,
-    hasError: lastNameHasError,
-    valueChangeHandler: lastNameHandler,
-    inputBlurHandler: lastNameBlur,
-    reset: lastNameReset
+    value: username,
+    isValid: usernameIsValid,
+    hasError: usernameHasError,
+    valueChangeHandler: usernameHandler,
+    inputBlurHandler: usernameBlur,
+    reset: usernameReset
   } = useInput(value => value.trim().length > 0);
-
-  const {
-    value: birthDate,
-    isValid: birthDateIsValid,
-    hasError: birthDateHasError,
-    valueChangeHandler: birthDateHandler,
-    inputBlurHandler: birthDateBlur,
-    reset: birthDateReset
-  } = useInput(value => value.trim().length > 5);
-
-  const {
-    value: country,
-    isValid: countryIsValid,
-    hasError: countryHasError,
-    valueChangeHandler: countryHandler,
-    inputBlurHandler: countryBlur,
-    reset: countryReset,
-  } = useInput((value) => value.length > 2);
-
-  const {
-    value: city,
-    isValid: cityIsValid,
-    hasError: cityHasError,
-    valueChangeHandler: cityHandler,
-    inputBlurHandler: cityBlur,
-    reset: cityReset,
-  } = useInput((value) => value.length > 5);
 
   const {
     value: email,
@@ -64,7 +41,7 @@ export default function Register() {
     valueChangeHandler: emailHandler,
     inputBlurHandler: emailBlur,
     reset: emailReset,
-  } = useInput((value) => value.length > 5);
+  } = useInput((value) => value.includes('@'));
 
   const {
     value: password,
@@ -86,116 +63,81 @@ export default function Register() {
 
 
   let formIsValid = false;
-  if(firstNameIsValid && passwordIsValid && lastNameIsValid && countryIsValid
-    && cityIsValid && emailIsValid && passwordIsValid){
-    formIsValid = true;
+  if(fullNameIsValid && usernameIsValid && emailIsValid && passwordIsValid
+    && password2IsValid){
+      formIsValid = true;
   }
 
   return(
-    <div className={styles.section}>
-      <h1 className={styles.sectionTitle}>Welcome,</h1>
-      <p className={styles.sectionSubTitle}>Please, register to continue</p>
-      <form className={styles.sectionForm} onSubmit={sumbitHandler}>
-        <div className={styles.sectionFormFields}>
-          <p>First name</p>
-          <input
-            type="text" 
-            placeholder='Your first name'
-            onBlur={firstNameBlur}
-            value={firstName}
-            onChange={firstNameHandler} />
-        </div>
-        <div className={styles.sectionFormFields}>
-          <p>Last name</p>
-          <input
-            type="text"
-            placeholder='Your last name' 
-            onBlur={lastNameBlur}
-            value={lastName}
-            onChange={lastNameHandler} />
-        </div>
-        <div className={styles.sectionFormFields}>
-          <p>Birth date</p>
-          <input
-            type="date"
-            placeholder='MM/DD/YYYY'
-            onBlur={birthDateBlur}
-            value={birthDate}
-            onChange={birthDateHandler} />
-        </div>
-        <div className={styles.sectionFormFields}>
-          <p>Country</p>
-          <input 
-            type="text" 
-            placeholder='Your Country'
-            onBlur={countryBlur}
-            value={country}
-            onChange={countryHandler} />
-        </div>
-        <div className={styles.sectionFormFields}>
-          <p>City</p>
-          <input 
-            type="text" 
-            placeholder='Your City' 
-            onBlur={cityBlur}
-            value={city}
-            onChange={cityHandler} />
-        </div>
-        <div className={styles.sectionFormFields}>
-          <p>E-mail</p>
-          <input
-            type="email"
-            placeholder='A valid e-mail here'
-            onBlur={emailBlur}
-            value={email}
-            onChange={emailHandler} />
-        </div>
-        <div className={styles.sectionFormFields}>
-          <p>Password</p>
-          <input
-            type="password"
-            placeholder='Your password'
-            onBlur={passwordBlur}
-            value={password}
-            onChange={passwordHandler} />
-        </div>
-        <div className={styles.sectionFormFields}>
-          <p>Password</p>
-          <input
-            type="password"
-            placeholder='Confirm your password'
-            onBlur={password2Blur}
-            value={password2}
-            onChange={password2Handler} />
-        </div>
+    <form className={styles.form} onSubmit={sumbitHandler}>
+      <p>Please fill the form to Register!</p>
+      <h3 className={styles.formTitle}>Full name</h3>
+      <input className={styles.formInput}
+        type="text"
+        value={fullName} 
+        onChange={fullNameHandler}
+        onBlur={fullNameBlur}
+        style={fullNameHasError ? {borderColor: 'red'} : {}} />
 
-        {(firstNameHasError || lastNameHasError) && <p className={styles.sectionFormError}>
-            insert a valid value for "name" field
-          </p>
-        }
-        {countryHasError && <p className={styles.sectionFormError}>
-            insert a valid value for "country" field
-          </p>
-        }
-        {cityHasError && <p className={styles.sectionFormError}>
-            "city" cannot be empty
-          </p>
-        }
-        {emailHasError && <p className={styles.sectionFormError}>
-            "email" must have "@"
-          </p>
-        }
-        {passwordHasError && <p className={styles.sectionFormError}>
-            "password" must have at least 5 characters
-          </p>
-        }
-        {password2HasError && <p className={styles.sectionFormError}>
-            the passwords doesn't match
-          </p>
-        }
+      <h3 className={styles.formTitle}>Username</h3>
+      <input className={styles.formInput}
+        type="text"
+        value={username} 
+        onChange={usernameHandler}
+        onBlur={usernameBlur}
+        style={usernameHasError ? {borderColor: 'red'} : {}} />
 
-        <button className={styles.sectionFormSubmit} type='submit'>Register Now</button>
-      </form>
-    </div>
+      <h3 className={styles.formTitle}>E-mail</h3>
+      <input className={styles.formInput}
+        type="text"
+        value={email} 
+        onChange={emailHandler}
+        onBlur={emailBlur}
+        style={emailHasError ? {borderColor: 'red'} : {}} />
+
+      <h3 className={styles.formTitle}>Password</h3>
+      <input className={styles.formInput}
+        type="password" 
+        value={password} 
+        onChange={passwordHandler}
+        onBlur={passwordBlur}
+        style={passwordHasError ? {borderColor: 'red'} : {}} />
+
+      <h3 className={styles.formTitle}>Confirm Password</h3>
+      <input className={styles.formInput}
+        type="password" 
+        value={password2} 
+        onChange={password2Handler}
+        onBlur={password2Blur}
+        style={password2HasError ? {borderColor: 'red'} : {}} />
+
+      {fullNameHasError && <p className={styles.formError}>
+          Insira seu nome completo
+        </p>
+      }
+      {usernameHasError && <p className={styles.formError}>
+          O nome de usuário deve conter mais de 5 caracteres
+        </p>
+      }
+      {emailHasError && <p className={styles.formError}>
+          Insira um e-mail válido
+        </p>
+      }
+      {passwordHasError && <p className={styles.formError}>
+          A senha deve conter mais de 5 caracteres
+        </p>
+      }
+      {password2HasError && <p className={styles.formError}>
+          As senhas são diferentes
+        </p>
+      }
+      
+      <button className={styles.formButton} type='submit'>
+        Login
+      </button>
+      <p className={styles.formRegister}>
+        Already have an account? <a href='/login/'>Login</a>
+      </p>
+    </form>
   );
 }

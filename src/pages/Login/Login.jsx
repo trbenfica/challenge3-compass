@@ -1,6 +1,5 @@
 
-import styles from './Login.module.css';
-import {useState} from 'react';
+import styles from './FormItems.module.css';
 import useInput from '../../hooks/use-input';
 
 export default function Login() {
@@ -64,7 +63,7 @@ export default function Login() {
         Login
       </button>
       <p className={styles.formRegister}>
-        Don't have an account? <a href='register/'>Register</a>
+        Don't have an account? <a href='/register/'>Register</a>
       </p>
     </form>
   );
