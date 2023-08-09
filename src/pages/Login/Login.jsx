@@ -52,17 +52,20 @@ export default function Login() {
         onChange={passwordHandler}
         onBlur={passwordBlur}
         style={passwordHasError ? {borderColor: 'red'} : {}} />
-      {passwordHasError && <p className={styles.sectionFormError}>
+      {passwordHasError && <p className={styles.formError}>
           A senha deve conter mais de 5 caracteres
         </p>
       }
-      {usernameHasError && <p className={styles.sectionFormError}>
+      {usernameHasError && <p className={styles.formError}>
           O nome de usuário deve conter mais de 5 caracteres
         </p>
       }
       <button className={styles.formButton} type='submit'>
-        Login In
+        Login
       </button>
+      <p className={styles.formRegister}>
+        Don't have an account? <a href='register/'>Register</a>
+      </p>
     </form>
   );
 }

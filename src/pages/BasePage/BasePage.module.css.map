@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../constants/_vars.sass","BasePage.module.sass"],"names":[],"mappings":"AAYA;EACE;EACA;EACA;;;AAEF;EACE,WAdmB;EAenB;;;ACfF;EAEE;EACA;;AAGA;EACE;;AAIF;EAEE;;;AAGJ;EACE;IACE;;;AAEJ;EACE;IACE","file":"BasePage.module.css"}
+{"version":3,"sourceRoot":"","sources":["../../constants/_vars.sass","BasePage.module.sass"],"names":[],"mappings":"AAYA;EACE;EACA;EACA;;;AAEF;EACE;EACA;;;ACfF;EAEE;EACA;;AAIA;EACE;;AAEF;EACE;;AACF;EAEE;;;AAQJ;EACE;IACE","file":"BasePage.module.css"}

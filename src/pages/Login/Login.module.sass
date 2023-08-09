@@ -6,7 +6,6 @@
     @extend %flexbox-centralized
     flex-direction: column
     gap: 1em
-    width: 18em
     &Title
       align-self: start
     &Input
@@ -20,6 +19,7 @@
       display: block
       text-align: center
       color: red
+      width: 20em
     &Button
       background: $secondary-color
       margin-top: 1rem
@@ -31,5 +31,10 @@
       font-size: 1.5em
       font-weight: 800
       transition: all 0.3s
+      color: white
       &:hover
         transform: scale(0.95)
+    &Register
+      text-align: center
+      a
+        font-weight: bold

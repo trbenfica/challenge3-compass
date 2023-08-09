@@ -10,3 +10,11 @@
 li {
   list-style-type: none;
 }
+
+
+@media(max-width: 1200px){
+  *{
+    font-size: 12px;
+  }
+}
+    

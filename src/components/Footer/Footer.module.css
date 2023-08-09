@@ -5,13 +5,12 @@
 }
 
 .footer {
-  max-width: 1170px;
+  width: clamp(300px, 90%, 1200px);
   margin: 0 auto;
 }
 
 .container {
   width: 100vw;
-  height: 18.75em;
   background: #FC8019;
 }
 .container p, .container li {
@@ -20,6 +19,7 @@
 
 .footer {
   padding: 5em 0;
+  min-height: 300px;
 }
 .footerTop {
   justify-content: space-between;
@@ -30,6 +30,18 @@
 .footerBottom {
   margin-top: 2em;
   gap: 1em;
+}
+
+@media (max-width: 800px) {
+  .footer {
+    flex-direction: column;
+  }
+  .footerTop {
+    flex-direction: column;
+  }
+  .footerTopNavs {
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=Footer.module.css.map */

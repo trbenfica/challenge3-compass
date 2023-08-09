@@ -7,7 +7,6 @@
 .form {
   flex-direction: column;
   gap: 1em;
-  width: 18em;
 }
 .formTitle {
   align-self: start;
@@ -24,6 +23,7 @@
   display: block;
   text-align: center;
   color: red;
+  width: 20em;
 }
 .formButton {
   background: #FC8019;
@@ -36,9 +36,16 @@
   font-size: 1.5em;
   font-weight: 800;
   transition: all 0.3s;
+  color: white;
 }
 .formButton:hover {
   transform: scale(0.95);
+}
+.formRegister {
+  text-align: center;
+}
+.formRegister a {
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=Login.module.css.map */
