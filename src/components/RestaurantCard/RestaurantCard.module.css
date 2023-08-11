@@ -1,0 +1,30 @@
+.cardRating, .cardRatingStars, .cardDeliveryTime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  font: 500 20px Poppins;
+  color: #202020;
+  text-transform: capitalize;
+  width: 14em;
+  height: 20em;
+  background: #F8F8F8;
+  padding: 1em;
+  border-radius: 10px;
+}
+.cardPhoto {
+  border-radius: 10px;
+  object-fit: cover;
+  width: 100%;
+  height: 50%;
+}
+.cardName {
+  text-align: start;
+}
+.cardRating {
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=RestaurantCard.module.css.map */

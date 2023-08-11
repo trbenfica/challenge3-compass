@@ -1,0 +1,75 @@
+
+@use './../../constants/_vars' as *
+
+.header
+  padding: 3.5em 0
+  @extend %page-container
+  @extend %flexbox-centralized
+  justify-content: space-between
+  &Img
+    justify-self: start
+  &Right
+    @extend %flexbox-centralized
+    gap: 1.5em
+    &Search
+      @extend %flexbox-centralized
+      border: 1px solid #d6d6d6
+      border-radius: 10px
+      gap: 1em
+      padding: 0 0.5em
+      > input
+        border: none
+        height: 3.5em
+        outline: none
+        padding: 0.5em
+        width: 25em
+        color: #c4c4c4
+      > img
+        transition: all 0.3s
+        &:hover
+          transform: scale(0.94)
+    &Bag
+      transition: all 0.3s
+      &:hover
+        transform: scale(0.94)
+    &Login
+      padding: 0.8em 1em
+      background: black
+      color: white
+      border-radius: 10px
+      transition: all 0.3s
+      &:hover
+        transform: scale(0.94)
+  &Burguer
+    display: none
+
+.dropdown
+  display: none
+  position: relative
+  font-size:16px
+  height: 100%
+  &Content
+    position: absolute
+    background-color: white
+    width: 120px
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1)
+    padding: 12px 16px
+    z-index: 1
+    left: -60px
+    border-radius: 10px
+    p
+      font-size: 1.3em
+      margin-top: 0.5em
+    & p:hover
+      color: $secondary-color
+
+@media(max-width: 800px)
+  .header
+    &Right
+      display: none
+    &Burguer
+      display: block
+  
+  .dropdown
+    display: block
+
