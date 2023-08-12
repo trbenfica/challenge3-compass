@@ -5,7 +5,7 @@
 }
 
 .hero {
-  width: 100vw;
+  height: 45em;
 }
 .hero span {
   color: #FC8019;
@@ -50,7 +50,7 @@
   width: 15%;
 }
 .heroMainTitle > p {
-  font: 400 16px/25px Inter;
+  font: 400 1rem/25px Inter;
 }
 .heroMainPhotos {
   gap: 1em;
@@ -65,6 +65,9 @@
 }
 
 @media (max-width: 1740px) {
+  .hero {
+    height: auto;
+  }
   .heroMain {
     grid-template-columns: 1fr;
   }
@@ -75,18 +78,17 @@
 }
 @media (max-width: 1200px) {
   .heroMain {
-    top: -30em;
+    top: -28em;
   }
 }
 @media (max-width: 800px) {
+  .hero {
+    height: 54em;
+  }
   .heroMain {
-    top: -36em;
     max-width: 85%;
     margin: 0 auto;
     display: block;
-  }
-  .heroMainPhotos {
-    flex-direction: column;
   }
   .heroMainPhotos > img {
     height: 15em;

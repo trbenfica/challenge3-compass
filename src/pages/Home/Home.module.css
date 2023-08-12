@@ -1,10 +1,23 @@
-.page, .pageRestaurants {
-  width: clamp(300px, 90%, 1200px);
+.pageRestaurants {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  width: clamp(300px, 85%, 1200px);
   margin: 0 auto;
 }
 
+.pageTitle {
+  font-size: 2rem;
+}
 .pageRestaurants {
   flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 1.8em;
+  margin-bottom: 4em;
+  margin-top: 1em;
 }
 
 /*# sourceMappingURL=Home.module.css.map */

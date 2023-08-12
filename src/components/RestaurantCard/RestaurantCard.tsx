@@ -7,17 +7,19 @@ const RestaurantCard: React.FC<{ name:string, image:string, rating:number, deliv
   return (
     <div className={styles.card}>
       <img className={styles.cardPhoto} src={props.image} alt="" />
-      <h3 className={styles.cardName}>{props.name}</h3>
-      <div className={styles.cardRating}>
-        <p>south indian</p>
-        <div className={styles.cardRatingStars}>
-          <img src={star} alt="" />
-          <p>props.rating</p>
+      <div className={styles.cardContainer}>
+        <h3 className={styles.cardContainerName}>{props.name}</h3>
+        <div className={styles.cardContainerRating}>
+          <p>south indian</p>
+          <div className={styles.cardContainerRatingStars}>
+            <img src={star} alt="" />
+            <p>{props.rating}</p>
+          </div>
         </div>
-      </div>
-      <div className={styles.cardRatingDeliveryTime}>
-        <img src={deliveryIcon} alt="" />
-        <p>{`${props.deliveryTime} Mins`}</p>
+        <div className={styles.cardContainerDeliveryTime}>
+          <img src={deliveryIcon} alt="" />
+          <p>{props.deliveryTime}</p>
+        </div>
       </div>
     </div>
   );

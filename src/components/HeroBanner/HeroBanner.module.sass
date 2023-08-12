@@ -3,7 +3,7 @@
 
 
 .hero
-  width: 100vw
+  height: 45em
   span
     color: $secondary-color
     font-size: 1em
@@ -39,7 +39,7 @@
           top: 10px
           width: 15%
       > p
-        font: 400 16px/25px Inter
+        font: 400 1rem/25px Inter
     &Photos
       @extend %flexbox-centralized
       gap: 1em
@@ -51,6 +51,8 @@
           transform: scale(1.07)
 
 @media(max-width: 1740px)
+  .hero
+    height: auto
   .heroMain
     grid-template-columns: 1fr
     &Title
@@ -59,16 +61,16 @@
   
 @media(max-width: 1200px)
   .heroMain
-    top: -30em
+    top: -28em
 
 @media(max-width: 800px)
+  .hero
+    height: 54em
   .heroMain
-    top: -36em
     max-width: 85%
     margin: 0 auto
     display: block
     &Photos
-      flex-direction: column
       > img
         height: 15em
         object-fit: cover
@@ -79,6 +81,7 @@
         display: none
     &Title
       min-width: 0
+      // height: 32em
   .heroBGImg2
     display: none
           

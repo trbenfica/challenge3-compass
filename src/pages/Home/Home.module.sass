@@ -3,6 +3,12 @@
 
 .page
   @extend %page-container
+  &Title
+    font-size: 2rem
   &Restaurants
-    @extend %page-container
+    @extend %flexbox-centralized
     flex-wrap: wrap
+    justify-content: space-between
+    row-gap: 1.8em
+    margin-bottom: 4em
+    margin-top: 1em

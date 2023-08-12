@@ -13,12 +13,12 @@ li {
 
 @media(max-width: 1200px){
   *{
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
-@media(max-width: 800px){
+/* @media(max-width: 800px){
   *{
     font-size: 10px;
   }
-}
+} */
