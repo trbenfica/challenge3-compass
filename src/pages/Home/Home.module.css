@@ -20,4 +20,10 @@
   margin-top: 1em;
 }
 
+@media (max-width: 800px) {
+  .pageRestaurants {
+    justify-content: space-evenly;
+  }
+}
+
 /*# sourceMappingURL=Home.module.css.map */

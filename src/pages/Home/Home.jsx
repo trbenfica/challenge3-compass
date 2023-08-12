@@ -6,9 +6,10 @@ import HeroBanner from '../../components/HeroBanner/HeroBanner';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
+import dummyPhotos from '../../constants/dummyPhotos';
 
 export default function Home() {
-  const [data, setData] = useState();
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     const options = {
@@ -47,6 +48,21 @@ export default function Home() {
       });  
   }, []);
   console.log(data);
+
+  let cards = [];
+  if(data !== null) {
+    for(let i = 0; i < data.edges.length; i++) {
+      let restaurant = data.edges[i];
+      cards.push(
+        <RestaurantCard
+          key={restaurant.node.objectId}
+          name={restaurant.node.name} 
+          image={dummyPhotos[i]}
+          rating={restaurant.node.rating}
+          deliveryTime={restaurant.node.deliveryTime} />
+      )
+    }
+  }
   
   return (
     <>
@@ -55,14 +71,17 @@ export default function Home() {
       <div className={styles.page}>
         <h1 className={styles.pageTitle}>Restaurants</h1>
         <div className={styles.pageRestaurants}>
-          {data && data.edges.map(restaurant => (
+          {
+            data && cards
+          }
+          {/* {data && data.edges.map(restaurant => (
             <RestaurantCard
               key={restaurant.node.objectId}
               name={restaurant.node.name} 
               image={restaurant.node.image}
               rating={restaurant.node.rating}
               deliveryTime={restaurant.node.deliveryTime} />
-          ))}
+          ))} */}
         </div>        
       </div>
       <Footer />
