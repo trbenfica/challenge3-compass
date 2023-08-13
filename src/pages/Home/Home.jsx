@@ -57,12 +57,15 @@ export default function Home() {
         <h1 className={styles.pageTitle}>Restaurants</h1>
         <div className={styles.pageRestaurants}>
           {data && data.edges.map(restaurant => (
-            <RestaurantCard
-              key={restaurant.node.objectId}
-              name={restaurant.node.name} 
-              image={dummyPhotos[restaurant.node.objectId]}
-              rating={restaurant.node.rating}
-              deliveryTime={restaurant.node.deliveryTime} />
+            <a href={`/restaurant/${restaurant.node.objectId}`}>
+              <RestaurantCard
+                key={restaurant.node.objectId}
+                name={restaurant.node.name} 
+                image={dummyPhotos[restaurant.node.objectId]}
+                rating={restaurant.node.rating}
+                deliveryTime={restaurant.node.deliveryTime}
+              />
+            </a>
           ))}
         </div>        
       </div>
