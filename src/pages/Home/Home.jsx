@@ -47,22 +47,7 @@ export default function Home() {
         console.error(error);
       });  
   }, []);
-  console.log(data);
-
-  let cards = [];
-  if(data !== null) {
-    for(let i = 0; i < data.edges.length; i++) {
-      let restaurant = data.edges[i];
-      cards.push(
-        <RestaurantCard
-          key={restaurant.node.objectId}
-          name={restaurant.node.name} 
-          image={dummyPhotos[i]}
-          rating={restaurant.node.rating}
-          deliveryTime={restaurant.node.deliveryTime} />
-      )
-    }
-  }
+  // console.log(data);
   
   return (
     <>
@@ -71,17 +56,14 @@ export default function Home() {
       <div className={styles.page}>
         <h1 className={styles.pageTitle}>Restaurants</h1>
         <div className={styles.pageRestaurants}>
-          {
-            data && cards
-          }
-          {/* {data && data.edges.map(restaurant => (
+          {data && data.edges.map(restaurant => (
             <RestaurantCard
               key={restaurant.node.objectId}
               name={restaurant.node.name} 
-              image={restaurant.node.image}
+              image={dummyPhotos[restaurant.node.objectId]}
               rating={restaurant.node.rating}
               deliveryTime={restaurant.node.deliveryTime} />
-          ))} */}
+          ))}
         </div>        
       </div>
       <Footer />
