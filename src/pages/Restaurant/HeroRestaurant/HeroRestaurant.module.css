@@ -1,17 +1,16 @@
-.hero, .heroTitleSubinfosInfo, .heroOffersContainer {
+.hero, .heroTitleSubinfosInfo, .heroOffersContainerItem {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .hero {
-  width: clamp(300px, 85%, 1300px);
+  width: clamp(300px, 85%, 1450px);
   margin: 0 auto;
 }
 
 .container {
   background: #202020;
-  height: 20em;
   padding: 1.5em 0;
 }
 .container p, .container h1 {
@@ -23,7 +22,8 @@
   justify-content: space-between;
 }
 .heroImg {
-  width: 26em;
+  width: 28%;
+  min-width: 20em;
   height: 15em;
 }
 .heroImg > img {
@@ -34,34 +34,86 @@
 }
 .heroTitle {
   margin-top: 2em;
-  display: flex;
-  flex-direction: column;
+  margin-inline: 1.2em;
+  width: 27em;
 }
 .heroTitle > h1 {
   font: 600 2rem Poppins;
+  margin-bottom: 0.5em;
 }
 .heroTitleSubinfos {
   display: flex;
   justify-content: space-between;
+  margin-block: 0.5em;
 }
 .heroTitleSubinfosInfo {
   flex-direction: column;
+  align-items: start;
+  margin: 0.5em;
 }
-.heroTitleSubinfosInfoRating p::before {
-  content: url("../../../assets/star.png");
+.heroTitleSubinfosInfoRating > img {
+  display: inline-block;
+  width: 1.1em;
+  margin-right: 0.5em;
+  margin-top: -0.2em;
+}
+.heroTitleSubinfosInfoRating > p {
+  display: inline-block;
 }
 .heroTitleSubinfosBar {
-  border-left: 1px solid gray;
-  height: 100%;
+  border-left: 2px solid gray;
 }
 .heroOffers {
   border: 2px dashed #FC8019;
   padding: 1.2em;
   height: 12em;
   border-radius: 20px;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .heroOffersTitle {
   color: #FC8019;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.5em;
+}
+.heroOffersContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.heroOffersContainerItem {
+  gap: 1em;
+  margin-block: 0.5em 0;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    flex-direction: column;
+  }
+  .heroTitle {
+    text-align: center;
+  }
+  .heroTitleSubinfos {
+    flex-direction: column;
+  }
+  .heroTitleSubinfosInfo {
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+  }
+  .heroTitleSubinfosBar {
+    border-top: 2px solid gray;
+    width: 85%;
+    margin: 0 auto;
+  }
+  .heroOffers {
+    height: 8em;
+    margin: 0 auto;
+  }
 }
 
 /*# sourceMappingURL=HeroRestaurant.module.css.map */

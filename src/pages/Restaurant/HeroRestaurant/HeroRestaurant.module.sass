@@ -3,18 +3,18 @@
 
 .container
   background: $third-color
-  height: 20em
   padding: 1.5em 0
   p, h1
     color: white
 
 .hero
   color: white
-  @extend %page-container
+  @extend %page-container-wide
   @extend %flexbox-centralized
   justify-content: space-between
   &Img
-    width: 26em
+    width: 28%
+    min-width: 20em
     height: 15em
     > img
       object-fit: cover
@@ -23,30 +23,69 @@
       border-radius: 15px
   &Title
     margin-top: 2em
-    display: flex
-    flex-direction: column
+    margin-inline: 1.2em
+    width: 27em
     > h1
       font: 600 2rem Poppins
+      margin-bottom: 0.5em
     &Subinfos
       display: flex
       justify-content: space-between
+      margin-block: 0.5em
       &Info
         @extend %flexbox-centralized
         flex-direction: column
+        align-items: start
+        margin: 0.5em
         &Rating
-          & p::before
-            content: url('../../../assets/star.png')
+          > img
+            display: inline-block
+            width: 1.1em
+            margin-right: 0.5em
+            margin-top: -0.2em
+          > p
+            display: inline-block
       &Bar
-        border-left: 1px solid gray
-        height: 100%
+        border-left: 2px solid gray
   &Offers
     border: 2px dashed $secondary-color
     padding: 1.2em
     height: 12em
     border-radius: 20px
+    align-self: end
+    display: flex
+    flex-direction: column
+    justify-content: space-around
     &Title
       color: $secondary-color
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      font-size: 1.5em
     &Container
-      @extend %flexbox-centralized
+      display: flex
+      flex-direction: column
+      align-items: start
+      &Item
+        @extend %flexbox-centralized
+        gap: 1em
+        margin-block: 0.5em 0
   
-        
+@media (max-width: 800px)
+  .hero
+    flex-direction: column
+    &Title
+      text-align: center
+      &Subinfos
+        flex-direction: column
+        &Info
+          flex-direction: row
+          gap: 1em
+          align-items: center
+        &Bar
+          border-top: 2px solid gray
+          width: 85%
+          margin: 0 auto
+    &Offers
+      height: 8em
+      margin: 0 auto
