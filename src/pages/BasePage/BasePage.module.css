@@ -5,7 +5,7 @@
 }
 
 .page {
-  width: clamp(300px, 85%, 1200px);
+  width: clamp(300px, 85%, 1300px);
   margin: 0 auto;
 }
 

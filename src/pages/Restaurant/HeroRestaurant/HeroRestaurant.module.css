@@ -5,7 +5,7 @@
 }
 
 .hero {
-  width: clamp(300px, 85%, 1200px);
+  width: clamp(300px, 85%, 1300px);
   margin: 0 auto;
 }
 
@@ -57,6 +57,8 @@
 .heroOffers {
   border: 2px dashed #FC8019;
   padding: 1.2em;
+  height: 12em;
+  border-radius: 20px;
 }
 .heroOffersTitle {
   color: #FC8019;

@@ -12,7 +12,9 @@ export default function Header() {
 
   return(
     <header className={styles.header}>
-      <img className={styles.headerImg} src={logo} alt="" />
+      <a href='/'>
+        <img className={styles.headerImg} src={logo} alt="" />
+      </a>
       <div className={styles.headerRight}>
         <div className={styles.headerRightSearch}>
           <input type="text" placeholder='Enter item or restaurant you are looking for' />
