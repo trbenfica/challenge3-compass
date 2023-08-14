@@ -1,0 +1,42 @@
+
+@use './../../../constants/_vars' as *
+
+.container
+  @extend %flexbox-centralized
+  justify-content: space-between
+  &Infos
+    margin-top: -4em
+    width: 35em
+    > *
+      margin-block: 1em
+    > h1
+      font-size: 1.25em
+      font-weight: 500
+    &Price
+      font-weight: 800
+    &Description
+      max-width: 30em
+  &Img
+    height: 100%
+    > img
+      object-fit: cover
+      height: 10.5em
+      border-radius: 12px
+    > button
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2)
+      background: white
+      height: 3.6em
+      color: #1AC84B
+      width: 7em
+      border-radius: 15px
+      border: none
+      position: relative
+      top: -30px
+      left: 2.8em
+      transition: all 0.3s
+      &:hover
+        transform: scale(0.96)
+        background: #1AC84B
+        color: white
+
+

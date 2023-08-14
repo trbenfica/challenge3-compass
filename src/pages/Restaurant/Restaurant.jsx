@@ -6,12 +6,21 @@ import axios from 'axios';
 import HeroComponent from './HeroRestaurant/HeroRestaurant';
 import Header from '../../components/Header/Header';
 import dummyPhotos from '../../constants/dummyPhotos';
+import SearchBarRestaurant from './SearchBarRestaurant/SearchBarRestaurant';
+import DishCard from './Dish/DishCard';
 
 export default function Restaurant() {
 
-  // Busca a informação acerca da obra específica na API
   const { slug } = useParams();
   const [payload, setPayload] = useState({});
+
+  const [itemQnt, setItemQnt] = useState(0);
+  // type restaurantData = {
+  //   name: string,
+  //   location: string,
+  //   rating: number,
+  //   deliveryTime: number
+  // }
 
   useEffect(() => {
     const options = {
@@ -57,6 +66,19 @@ export default function Restaurant() {
   }, []);
   console.log(payload);
 
+  const decreaseHandler = () => {
+    if(itemQnt > 0)
+      setItemQnt(prev => prev - 1);
+  }
+
+  const increaseHandler = () => {
+    setItemQnt(prev => prev + 1);
+  }
+
+  // const cartDummy = {
+  //   items = []
+  // }
+
   return (
     <>
       <Header />
@@ -67,8 +89,69 @@ export default function Restaurant() {
         rating={payload.rating} 
         deliveryTime={payload.deliveryTime}
       />
-      <div className={styles.topContainer}>
-        
+      <SearchBarRestaurant />
+      <div className={styles.content}>
+        <nav className={styles.contentNavs}>
+          <li>Recommended</li>
+          <li>Breakfast Box</li>
+          <li>Lunch Box</li>
+          <li>Combo Box</li>
+          <li>Biriyani Box</li>
+        </nav>
+
+        <div className={styles.contentMain}>
+          {payload.topDishes && payload.topDishes.map(dish => (
+            <DishCard
+              key={dish.name}
+              name={dish.name} 
+              price={dish.price} 
+              description={dish.description} 
+              img={dummyPhotos[slug]}
+            />
+          ))}
+        </div>
+
+        <div className={styles.cart}>
+          <div className={styles.cartTitles}>
+            <h1>Cart</h1>
+            <p>2 Items</p>
+          </div>
+
+          <div className={styles.cartItem}>
+            <div className={styles.cartItemLeft}>
+              <p className={styles.cartItemLeftRestaurant}>from <span>restaurant</span></p>
+              <p className={styles.cartItemLeftName}>food-name-here</p>
+              <p className={styles.cartItemLeftPrice}>$ price-here</p>
+            </div>
+            <div className={styles.cartItemRight}>
+              <button onClick={decreaseHandler} className={styles.cartItemRightButton}>-</button>
+              <p className={styles.cartItemRightQnt}>{itemQnt}</p>
+              <button onClick={increaseHandler} className={styles.cartItemRightButton}>+</button>
+            </div>
+          </div>
+
+          <div className={styles.cartItem}>
+            <div className={styles.cartItemLeft}>
+              <p className={styles.cartItemLeftRestaurant}>from <span>restaurant</span></p>
+              <p className={styles.cartItemLeftName}>food-name-here</p>
+              <p className={styles.cartItemLeftPrice}>$ price-here</p>
+            </div>
+            <div className={styles.cartItemRight}>
+              <button onClick={decreaseHandler} className={styles.cartItemRightButton}>-</button>
+              <p className={styles.cartItemRightQnt}>{itemQnt}</p>
+              <button onClick={increaseHandler} className={styles.cartItemRightButton}>+</button>
+            </div>
+          </div>
+
+          <div className={styles.cartSubtotal}>
+            <div className={styles.cartSubtotalLeft}>
+              <h1>Subtotal</h1>
+              <p>Extra charges may apply</p>
+            </div>
+              <h1>$ 23</h1>
+          </div>
+        </div>
+                
 
       </div>
     </>

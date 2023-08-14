@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  justify-content: space-between;
+}
+.containerInfos {
+  margin-top: -4em;
+  width: 35em;
+}
+.containerInfos > * {
+  margin-block: 1em;
+}
+.containerInfos > h1 {
+  font-size: 1.25em;
+  font-weight: 500;
+}
+.containerInfosPrice {
+  font-weight: 800;
+}
+.containerInfosDescription {
+  max-width: 30em;
+}
+.containerImg {
+  height: 100%;
+}
+.containerImg > img {
+  object-fit: cover;
+  height: 10.5em;
+  border-radius: 12px;
+}
+.containerImg > button {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background: white;
+  height: 3.6em;
+  color: #1AC84B;
+  width: 7em;
+  border-radius: 15px;
+  border: none;
+  position: relative;
+  top: -30px;
+  left: 2.8em;
+  transition: all 0.3s;
+}
+.containerImg > button:hover {
+  transform: scale(0.96);
+  background: #1AC84B;
+  color: white;
+}
+
+/*# sourceMappingURL=DishCard.module.css.map */

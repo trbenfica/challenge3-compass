@@ -40,34 +40,6 @@ const HeroComponent: React.FC<{ name:string, location: string, image:string, rat
           </div>
         </div>
 
-        {/* <div className={styles.heroTitle}>
-          <h1>{props.name}</h1>
-          <p>{props.location}</p>
-          <div className={styles.heroTitleSubinfos}>
-            <div className={styles.heroTitleSubinfosInfo}>
-              <div className={styles.heroTitleSubinfosInfoRating}>  
-                <img src={star} alt="" />
-                <p>{props.rating}</p>
-              </div>
-              <p>100+ ratings</p>
-            </div>
-
-            <div className={styles.heroTitleSubinfosBar} />
-
-            <div className={styles.heroTitleSubinfosInfo}>
-              <p>{props.deliveryTime}</p>
-              <p>Delivery Time</p>
-            </div>
-
-            <div className={styles.heroTitleSubinfosBar} />
-
-            <div className={styles.heroTitleSubinfosInfo}>
-              <p>$ 200</p>
-              <p>Cost for two</p>
-            </div>
-          </div>
-        </div> */}
-
 
         <div className={styles.heroOffers}>
           <h3 className={styles.heroOffersTitle}>Offers</h3>

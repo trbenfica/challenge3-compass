@@ -2,6 +2,63 @@
 @use './../../constants/_vars' as *
 
 
+.content
+  @extend %page-container
+  margin: 2em auto
+  display: grid
+  grid-template-columns: 1fr 4fr 1fr
+  &Navs
+    padding: 0 3em
+    justify-self: end
+    > li
+      margin-block: 1em
+      &:hover
+        color: $secondary-color
+  &Main
+    padding: 0 3em
+    border-left: 1px solid #808080
 
+.cart
+  width: 20em
+  &Titles
+    @extend %flexbox-centralized
+    justify-content: space-between
+    margin-bottom: 1.2em
+    > h1
+      font-size: 1.5em
+      font-weight: 500
+  &Item
+    @extend %flexbox-centralized
+    justify-content: space-between
+    margin: 2em 0
+    &Left
+      &Restaurant
+        margin-bottom: 0.6em
+        span
+          color: $secondary-color
+      &Price
+        color: #808080
+    &Right
+      @extend %flexbox-centralized
+      gap: 1em
+      > *
+        font-size: 1.3em
+      > button
+        border-radius: 30px
+        border: none
+        background: none
+        
+
+  &Subtotal
+    @extend %flexbox-centralized
+    justify-content: space-between
+    h1
+      font-size: 1.5em
+      font-weight: 500
+    p
+      font-size: 0.875em
+      color: #808080
+
+    
 
   

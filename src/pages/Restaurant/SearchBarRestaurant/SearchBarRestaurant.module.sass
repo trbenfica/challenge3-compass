@@ -1,0 +1,38 @@
+
+@use './../../../constants/_vars' as *
+
+
+.page
+  @extend %page-container
+  position: relative
+  top: -20px
+  &TopContainer
+    margin: 0 auto
+    gap: 3em
+    @extend %flexbox-centralized
+    &Box
+      padding: 0.51em 1.5em
+      border-radius: 12px
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2)
+      background: white
+      height: 3.3em
+      @extend %flexbox-centralized
+      > img
+        transition: all 0.3s
+        &:hover
+          transform: scale(0.94)
+      > *
+        border: none
+        outline: none
+      &Search
+        width: 25em
+        height: 2.8em
+      &Favorite
+        @extend %flexbox-centralized
+        gap: 1em
+        height: 2.8em
+        background: none
+        width: 5.5em
+        > img
+          width: 1.5em
+    

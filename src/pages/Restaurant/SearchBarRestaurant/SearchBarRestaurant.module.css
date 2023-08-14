@@ -1,0 +1,51 @@
+.pageTopContainer, .pageTopContainerBox, .pageTopContainerBoxFavorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  width: clamp(300px, 85%, 1300px);
+  margin: 0 auto;
+}
+
+.page {
+  position: relative;
+  top: -20px;
+}
+.pageTopContainer {
+  margin: 0 auto;
+  gap: 3em;
+}
+.pageTopContainerBox {
+  padding: 0.51em 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background: white;
+  height: 3.3em;
+}
+.pageTopContainerBox > img {
+  transition: all 0.3s;
+}
+.pageTopContainerBox > img:hover {
+  transform: scale(0.94);
+}
+.pageTopContainerBox > * {
+  border: none;
+  outline: none;
+}
+.pageTopContainerBoxSearch {
+  width: 25em;
+  height: 2.8em;
+}
+.pageTopContainerBoxFavorite {
+  gap: 1em;
+  height: 2.8em;
+  background: none;
+  width: 5.5em;
+}
+.pageTopContainerBoxFavorite > img {
+  width: 1.5em;
+}
+
+/*# sourceMappingURL=SearchBarRestaurant.module.css.map */
