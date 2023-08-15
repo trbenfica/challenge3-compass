@@ -5,6 +5,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import HeroComponent from './HeroRestaurant/HeroRestaurant';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 import dummyPhotos from '../../constants/dummyPhotos';
 import SearchBarRestaurant from './SearchBarRestaurant/SearchBarRestaurant';
 import DishCard from './Dish/DishCard';
@@ -98,6 +99,15 @@ export default function Restaurant() {
           <li>Combo Box</li>
           <li>Biriyani Box</li>
         </nav>
+        <select className={styles.contentNavsSelect}>
+          <option>Recommended</option>
+          <option>Breakfast Box</option>
+          <option>Lunch Box</option>
+          <option>Combo Box</option>
+          <option>Biriyani Box</option>
+        </select>
+
+
 
         <div className={styles.contentMain}>
           {payload.topDishes && payload.topDishes.map(dish => (
@@ -154,6 +164,7 @@ export default function Restaurant() {
                 
 
       </div>
+      <Footer />
     </>
   )
 }

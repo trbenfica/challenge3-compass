@@ -3,10 +3,12 @@
 
 
 .content
-  @extend %page-container
-  margin: 2em auto
-  display: grid
-  grid-template-columns: 1fr 4fr 1fr
+  @extend %page-container-wide
+  margin: 3em auto
+  // display: grid
+  // grid-template-columns: 1fr 4fr 1fr
+  @extend %flexbox-centralized
+  align-items: start
   &Navs
     padding: 0 3em
     justify-self: end
@@ -14,6 +16,8 @@
       margin-block: 1em
       &:hover
         color: $secondary-color
+    &Select
+      display: none
   &Main
     padding: 0 3em
     border-left: 1px solid #808080
@@ -60,5 +64,19 @@
       color: #808080
 
     
-
+@media (max-width: 800px)
+  .content
+    flex-direction: column
+    align-items: center
+    &Navs
+      display: none
+      &Select
+        display: block
+        margin-bottom: 2em
+        margin-top: -1em
+        background: white
+        border: none
+    &Main
+      border: none
+      padding: 0
   

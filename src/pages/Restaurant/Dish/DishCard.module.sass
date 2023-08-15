@@ -3,10 +3,10 @@
 
 .container
   @extend %flexbox-centralized
-  justify-content: space-between
+  justify-content: start
   &Infos
     margin-top: -4em
-    width: 35em
+    width: 80%
     > *
       margin-block: 1em
     > h1
@@ -15,9 +15,10 @@
     &Price
       font-weight: 800
     &Description
-      max-width: 30em
+      color: #808080
+      margin-right: 0.5em
   &Img
-    height: 100%
+    width: 10.5em
     > img
       object-fit: cover
       height: 10.5em

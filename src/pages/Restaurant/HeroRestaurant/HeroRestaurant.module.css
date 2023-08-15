@@ -96,6 +96,7 @@
   }
   .heroTitle {
     text-align: center;
+    width: 27em;
   }
   .heroTitleSubinfos {
     flex-direction: column;
@@ -113,6 +114,9 @@
   .heroOffers {
     height: 8em;
     margin: 0 auto;
+  }
+  .heroOffersContainerItem {
+    margin-block: 0;
   }
 }
 

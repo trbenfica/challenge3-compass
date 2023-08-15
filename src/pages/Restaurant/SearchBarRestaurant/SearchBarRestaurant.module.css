@@ -48,4 +48,18 @@
   width: 1.5em;
 }
 
+@media (max-width: 800px) {
+  .page {
+    position: static;
+  }
+  .pageTopContainer {
+    flex-direction: column-reverse;
+    gap: 1em;
+    margin-block: 1em;
+  }
+  .pageTopContainerBoxSearch {
+    width: 18em;
+  }
+}
+
 /*# sourceMappingURL=SearchBarRestaurant.module.css.map */

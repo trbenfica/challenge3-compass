@@ -1,18 +1,17 @@
-.cartTitles, .cartItem, .cartItemRight, .cartSubtotal {
+.content, .cartTitles, .cartItem, .cartItemRight, .cartSubtotal {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .content {
-  width: clamp(300px, 85%, 1300px);
+  width: clamp(300px, 85%, 1450px);
   margin: 0 auto;
 }
 
 .content {
-  margin: 2em auto;
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  margin: 3em auto;
+  align-items: start;
 }
 .contentNavs {
   padding: 0 3em;
@@ -23,6 +22,9 @@
 }
 .contentNavs > li:hover {
   color: #FC8019;
+}
+.contentNavsSelect {
+  display: none;
 }
 .contentMain {
   padding: 0 3em;
@@ -74,6 +76,27 @@
 .cartSubtotal p {
   font-size: 0.875em;
   color: #808080;
+}
+
+@media (max-width: 800px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contentNavs {
+    display: none;
+  }
+  .contentNavsSelect {
+    display: block;
+    margin-bottom: 2em;
+    margin-top: -1em;
+    background: white;
+    border: none;
+  }
+  .contentMain {
+    border: none;
+    padding: 0;
+  }
 }
 
 /*# sourceMappingURL=Restaurant.module.css.map */

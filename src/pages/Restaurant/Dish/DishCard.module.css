@@ -5,11 +5,11 @@
 }
 
 .container {
-  justify-content: space-between;
+  justify-content: start;
 }
 .containerInfos {
   margin-top: -4em;
-  width: 35em;
+  width: 80%;
 }
 .containerInfos > * {
   margin-block: 1em;
@@ -22,10 +22,11 @@
   font-weight: 800;
 }
 .containerInfosDescription {
-  max-width: 30em;
+  color: #808080;
+  margin-right: 0.5em;
 }
 .containerImg {
-  height: 100%;
+  width: 10.5em;
 }
 .containerImg > img {
   object-fit: cover;
