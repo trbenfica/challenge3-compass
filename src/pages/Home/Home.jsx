@@ -24,7 +24,7 @@ export default function Home() {
     <>
       <Header />
       <HeroBanner />
-      {!loading && <ModalWindow isOpen={isModalOpen} onClose={closeModal}>
+      {!loading && data === null && <ModalWindow isOpen={isModalOpen} onClose={closeModal}>
           <img src='https://cdn-icons-png.flaticon.com/128/2797/2797387.png' alt="" />
           <h1>Não foi possível conectar ao servidor!</h1>
         </ModalWindow>

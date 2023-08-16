@@ -8,6 +8,12 @@
   flex-direction: column;
   gap: 1em;
 }
+.formTest {
+  background: none;
+  outline: none;
+  border: none;
+  align-self: start;
+}
 .formTitle {
   align-self: start;
 }

@@ -18,7 +18,9 @@ export default function BasePage(props) {
   return (
     <>
       <div className={styles.page}>
-        <img className={styles.pageLogo} src={logo} alt="" />
+        <a href="/">
+          <img className={styles.pageLogo} src={logo} alt="" />
+        </a>
         <h3 className={styles.pageTitle}>
           {props.content === 'register' ? 'Register' : 'Login'}
         </h3>

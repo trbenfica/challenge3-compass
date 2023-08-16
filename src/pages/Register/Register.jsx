@@ -8,12 +8,18 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
 
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [testModal, setTestModal] = useState(false);
   const [status, setStatus] = useState(null);
   const navigate = useNavigate();
 
   function closeModal() {
-    navigate('/login')
+    setIsModalOpen(false);
+    setTestModal(false);
+    if(status === 201) {
+      navigate('/login');
+    }
+    else ;
   }
 
   function sumbitHandler (event) {
@@ -24,13 +30,6 @@ export default function Register() {
         "password": "${password}"
       }`;
       sendHttpRequest(newUserData);
-
-      fullNameReset();
-      passwordReset();
-      usernameReset();
-      emailReset();
-      passwordReset();
-      password2Reset();
     }
   };
 
@@ -41,14 +40,16 @@ export default function Register() {
         method: 'POST',
         url: 'https://parseapi.back4app.com/users',
         headers: {
-          "X-Parse-Application-Id": "lrAPveloMl57TTby5U0S4rFPBrANkAhLUll8jFOh",
-          "X-Parse-REST-API-Key": '8aqUBWOjOplfA6lstntyYsYVkt3RzpVtb8qU5x08',
+          "X-Parse-Application-Id": "DSiIkHz2MVbCZutKS7abtgrRVsiLNNGcs0L7VsNL",
+          'X-Parse-Master-Key': '0cpnqkSUKVkIDlQrNxameA6OmjxmrA72tsUMqVG9',
+          "X-Parse-Client-Key": 'zXOqJ2k44R6xQqqlpPuizAr3rs58RhHXfU7Aj20V',
           "X-Parse-Revocable-Session": 1,
           "Content-Type": "application/json"
         },
         data: body
       });
       setStatus(response.status);
+      setIsModalOpen(true);
     } catch (error) {
       if (error.response) {
         setStatus(error.response.status);
@@ -110,20 +111,42 @@ export default function Register() {
       formIsValid = true;
   }
 
+  let modalContent = '';
+  if(status !== null) {
+    if(status === 201) {
+      modalContent = 
+        <>
+          <img src='https://cdn-icons-png.flaticon.com/128/4315/4315445.png' alt="" />
+          <h1>Sucesso! Você será redirecionado para a página de login</h1>
+        </>;
+    }
+    else {
+      modalContent = 
+        <>
+          <img src='https://cdn-icons-png.flaticon.com/128/2797/2797387.png' alt="" />
+          <h1>Erro! Não foi possível processar sua solicitação</h1>
+        </>;
+    }
+  }
+  // console.log(status);
+  if(testModal === true) {
+    if(isModalOpen === false)
+      setIsModalOpen(true);
+  }
+
   return(
     <>
-      {(status !== 201) && (status !== null) && <ModalWindow isOpen={isModalOpen} onClose={closeModal}>
-          <img src='https://cdn-icons-png.flaticon.com/128/2797/2797387.png' alt="" />
-          <h1>Erro! Não foi possível processar sua solicitação.</h1>
+      {status !== null && <ModalWindow isOpen={isModalOpen} onClose={closeModal}>
+          {modalContent}
         </ModalWindow>
       }
-      {(status === 201) && <ModalWindow isOpen={isModalOpen} onClose={closeModal}>
-          <img src='https://cdn-icons-png.flaticon.com/128/4315/4315445.png' alt="" />
-          <h1>Sucesso! Você será redirecionado para a página de login...</h1>
+      {testModal && <ModalWindow isOpen={isModalOpen} onClose={closeModal}>
+          <img src='https://cdn-icons-png.flaticon.com/128/2797/2797387.png' alt="" />
+          <h1>Erro! Não foi possível processar sua solicitação</h1>
         </ModalWindow>
       }
       <form className={styles.form} onSubmit={sumbitHandler}>
-        <p>Please fill the form to Register!</p>
+        <button className={styles.formTest} onClick={() => setTestModal(true)}>Please fill the form to Register!</button>
         <h3 className={styles.formTitle}>Full name</h3>
         <input className={styles.formInput}
           type="text"
@@ -186,7 +209,7 @@ export default function Register() {
         }
         
         <button className={styles.formButton} type='submit'>
-          Login
+          Register
         </button>
         <p className={styles.formRegister}>
           Already have an account? <a href='/login/'>Login</a>
