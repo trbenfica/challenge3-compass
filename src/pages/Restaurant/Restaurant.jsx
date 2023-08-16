@@ -1,71 +1,23 @@
 
 import styles from './Restaurant.module.css'
 import { useParams } from "react-router-dom";
-import {useState, useEffect} from 'react';
-import axios from 'axios';
+import {useState} from 'react';
 import HeroComponent from './HeroRestaurant/HeroRestaurant';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import dummyPhotos from '../../constants/dummyPhotos';
 import SearchBarRestaurant from './SearchBarRestaurant/SearchBarRestaurant';
 import DishCard from './Dish/DishCard';
+import useGraphQlFetch from '../../hooks/useGraphQlFetch';
+import {getRestaurantByIdQuery} from '../../services/getRestaurantByIdQuery';
 
 export default function Restaurant() {
 
   const { slug } = useParams();
-  const [payload, setPayload] = useState({});
-
   const [itemQnt, setItemQnt] = useState(0);
-  // type restaurantData = {
-  //   name: string,
-  //   location: string,
-  //   rating: number,
-  //   deliveryTime: number
-  // }
-
-  useEffect(() => {
-    const options = {
-      method: 'POST',
-      url: 'https://parseapi.back4app.com/graphql',
-      headers: {
-        "X-Parse-Application-Id": "lrAPveloMl57TTby5U0S4rFPBrANkAhLUll8jFOh",
-        "X-Parse-REST-API-Key": '8aqUBWOjOplfA6lstntyYsYVkt3RzpVtb8qU5x08',
-        "Content-Type": "application/json"
-      },
-      data: {
-        query: `query GetRestaurantById {
-          fitMe(id: "keB6js62Kx") {
-              name
-              image
-              location
-              name
-              rating
-              deliveryTime
-              topDishes{
-                  ... AllDishes
-              }
-          }
-      }
-      
-      fragment AllDishes on Dish {
-          name
-          description
-          image
-          price
-      }`
-      }
-    };
+  const query = getRestaurantByIdQuery(slug);
   
-    axios
-      .request(options)
-      .then(function (response) {
-        setPayload(response.data.data.fitMe);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });  
-  }, []);
-  console.log(payload);
+  const { data, loading, error } = useGraphQlFetch(query);
 
   const decreaseHandler = () => {
     if(itemQnt > 0)
@@ -76,20 +28,16 @@ export default function Restaurant() {
     setItemQnt(prev => prev + 1);
   }
 
-  // const cartDummy = {
-  //   items = []
-  // }
-
   return (
     <>
       <Header />
-      <HeroComponent
-        name={payload.name} 
-        location={payload.location}
+      {data && <HeroComponent
+        name={data.data.fitMe.name} 
+        location={data.data.fitMe.location}
         image={dummyPhotos[slug]} 
-        rating={payload.rating} 
-        deliveryTime={payload.deliveryTime}
-      />
+        rating={data.data.fitMe.rating} 
+        deliveryTime={data.data.fitMe.deliveryTime}
+      />}
       <SearchBarRestaurant />
       <div className={styles.content}>
         <nav className={styles.contentNavs}>
@@ -110,7 +58,7 @@ export default function Restaurant() {
 
 
         <div className={styles.contentMain}>
-          {payload.topDishes && payload.topDishes.map(dish => (
+          {data && data.data.fitMe.topDishes.map(dish => (
             <DishCard
               key={dish.name}
               name={dish.name} 

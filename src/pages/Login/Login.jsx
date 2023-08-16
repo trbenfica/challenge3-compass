@@ -1,12 +1,13 @@
 
 import styles from './FormItems.module.css';
 import useInput from '../../hooks/use-input';
+// import useRegisterReq from '../../hooks/HttpSendRequest';
 
 export default function Login() {
   function sumbitHandler (event) {
     event.preventDefault();
     if (formIsValid) {
-      console.log('submetido');
+      
       usernameReset();
       passowrdReset();
     }

@@ -3,63 +3,39 @@ import styles from './Home.module.css';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import HeroBanner from '../../components/HeroBanner/HeroBanner';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 import dummyPhotos from '../../constants/dummyPhotos';
+import useGraphQlFetch from '../../hooks/useGraphQlFetch';
+import ModalWindow from '../../components/ModalWindow/ModalWindow';
+import { useState } from 'react';
+import queries from '../../services/httpQueries';
 
 export default function Home() {
-  const [data, setData] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
-  useEffect(() => {
-    const options = {
-      method: 'POST',
-      url: 'https://parseapi.back4app.com/graphql',
-      headers: {
-        "X-Parse-Application-Id": "lrAPveloMl57TTby5U0S4rFPBrANkAhLUll8jFOh",
-        "X-Parse-REST-API-Key": '8aqUBWOjOplfA6lstntyYsYVkt3RzpVtb8qU5x08',
-        "Content-Type": "application/json"
-      },
-      data: {
-        query: `query GetAllRestaurants {
-          fitMes{
-            count
-            edges{
-              node{
-                objectId
-                name
-                rating
-                deliveryTime
-                image
-              }
-            }
-          }
-        }`
-      }
-    };
-  
-    axios
-      .request(options)
-      .then(function (response) {
-        setData(response.data.data.fitMes);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });  
-  }, []);
-  // console.log(data);
-  
+  function closeModal() {
+    setIsModalOpen(false);
+  }
+
+  const { data, loading, error } = useGraphQlFetch(queries.getAllRestaurants);
+  console.log(data)
+
   return (
     <>
       <Header />
       <HeroBanner />
+      {!loading && <ModalWindow isOpen={isModalOpen} onClose={closeModal}>
+          <img src='https://cdn-icons-png.flaticon.com/128/2797/2797387.png' alt="" />
+          <h1>Não foi possível conectar ao servidor!</h1>
+        </ModalWindow>
+      }
       <div className={styles.page}>
         <h1 className={styles.pageTitle}>Restaurants</h1>
         <div className={styles.pageRestaurants}>
-          {data && data.edges.map(restaurant => (
-            <a href={`/restaurant/${restaurant.node.objectId}`}>
+          {loading && <div className={styles.pageLoader} />}
+          {data && data.data.fitMes.edges.map(restaurant => (
+            <a key={restaurant.node.objectId} href={`/restaurant/${restaurant.node.objectId}`}>
               <RestaurantCard
-                key={restaurant.node.objectId}
                 name={restaurant.node.name} 
                 image={dummyPhotos[restaurant.node.objectId]}
                 rating={restaurant.node.rating}
