@@ -5,7 +5,7 @@ import styles from './ModalWindow.module.css';
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  children: any
+  children?: any
 }
 
 const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {

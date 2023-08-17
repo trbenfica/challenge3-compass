@@ -22,7 +22,7 @@ import search from '../../../assets/search.png';
   }
 
   return (
-    <div className={styles.page}>
+    <div className={styles.page} data-testid='search-bar-restaurant'>
       <div className={styles.pageTopContainer}>
         <div className={styles.pageTopContainerBox}>
           <input
@@ -37,11 +37,12 @@ import search from '../../../assets/search.png';
         <div className={styles.pageTopContainerBox}>
           <button
             className={styles.pageTopContainerBoxFavorite} 
-            onClick={favoriteHandler}      
+            onClick={favoriteHandler}
+            data-testid='toggle-favorite'
           >
-            {isFavorite && <img src={orangeStar} alt="" />}
+            {isFavorite && <img src={orangeStar} alt="Disfavor" />}
             {isFavorite && <p>Disfavor</p>}
-            {!isFavorite && <img src={emptyStar} alt="" /> }
+            {!isFavorite && <img src={emptyStar} alt="Favorite" /> }
             {!isFavorite && <p>Favorite</p>}
           </button>
         </div>

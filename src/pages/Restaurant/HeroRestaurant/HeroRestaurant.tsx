@@ -3,15 +3,22 @@ import styles from './HeroRestaurant.module.css'
 import percentage from '../../../assets/percentage.png'
 import star from '../../../assets/star.png'
 
-const HeroComponent: React.FC<{ name:string, location: string, image:string, rating:number, deliveryTime:number }> = (props) => {
+interface HeroComponentProps {
+  name: string;
+  location: string;
+  image: string;
+  rating: number;
+  deliveryTime: number;
+}
+
+const HeroComponent: React.FC<HeroComponentProps> = (props) => {
+
   return (
     <div className={styles.container}>
       <div className={styles.hero}>
         <div className={styles.heroImg}>
           <img src={props.image} alt="" />
         </div>
-
-
         <div className={styles.heroTitle}>
           <h1>{props.name}</h1>
           <p>{props.location}</p>
@@ -60,7 +67,6 @@ const HeroComponent: React.FC<{ name:string, location: string, image:string, rat
     </div>
 
   );
-
 }
 
 export default HeroComponent;

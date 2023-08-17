@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = (props) => {
   }
 
   return(
-    <header className={styles.header}>
+    <header className={styles.header} data-testid='header'>
       <a href='/'>
         <img className={styles.headerImg} src={logo} alt="" />
       </a>

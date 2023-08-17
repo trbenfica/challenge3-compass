@@ -1,9 +1,17 @@
 
 import styles from './DishCard.module.css';
 
-const DishCard: React.FC<{ name:string, price:number, description:string, img:any }> = (props) => {
+interface DishCardProps {
+  name: string;
+  price: number;
+  description: string;
+  img: any;
+}
+
+const DishCard: React.FC<DishCardProps> = (props) => {
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid='dish-card'>
       <div className={styles.containerInfos}>
         <h1>{props.name}</h1>
         <p className={styles.containerInfosPrice}>{`$ ${props.price}`}</p>
@@ -12,9 +20,7 @@ const DishCard: React.FC<{ name:string, price:number, description:string, img:an
       <div className={styles.containerImg}>
         <img src={props.img} alt="" />
         <button>Add +</button>
-
       </div>
-
     </div>    
   )
 }

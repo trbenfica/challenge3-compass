@@ -68,7 +68,7 @@ const Restaurant: React.FC = () => {
           ))}
         </div>
 
-        <div className={styles.cart}>
+        <div className={styles.cart} data-testid='cart'>
           <div className={styles.cartTitles}>
             <h1>Cart</h1>
             <p>2 Items</p>

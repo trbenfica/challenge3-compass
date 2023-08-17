@@ -19,8 +19,6 @@ interface Restaurant {
   };
 }
 
-
-
 const Home: React.FC = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
@@ -29,7 +27,6 @@ const Home: React.FC = (props) => {
   }
 
   const { data, loading, error } = useGraphQlFetch(queryAllRestaurants());
-  // console.log(data)
 
   return (
     <>

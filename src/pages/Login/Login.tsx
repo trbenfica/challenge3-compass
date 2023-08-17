@@ -79,7 +79,7 @@ const Login: React.FC = () => {
   }
 
   return(
-    <form className={styles.form} onSubmit={sumbitHandler}>
+    <form className={styles.form} onSubmit={sumbitHandler} data-testid='login-component'>
       {/* <h3 className={styles.formTitle}>Username</h3> */}
       {<ModalWindow isOpen={isModalOpen} onClose={closeModal}>
           <img src='https://cdn-icons-png.flaticon.com/128/2797/2797387.png' alt="" />
@@ -91,6 +91,7 @@ const Login: React.FC = () => {
         type="text"
         value={username} 
         onChange={usernameHandler}
+        data-testid='username-element'
         onBlur={usernameBlur}
         style={usernameHasError ? {borderColor: 'red'} : {}} />
       <h3 className={styles.formTitle}>Password</h3>
@@ -98,6 +99,7 @@ const Login: React.FC = () => {
         type="password" 
         value={password} 
         onChange={passwordHandler}
+        data-testid='password-element'
         onBlur={passwordBlur}
         style={passwordHasError ? {borderColor: 'red'} : {}} />
       {passwordHasError && <p className={styles.formError}>

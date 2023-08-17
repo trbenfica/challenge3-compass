@@ -138,7 +138,7 @@ const Register: React.FC = () => {
           <h1>Erro! Não foi possível processar sua solicitação</h1>
         </ModalWindow>
       }
-      <form className={styles.form} onSubmit={sumbitHandler}>
+      <form className={styles.form} onSubmit={sumbitHandler} data-testid='register-component'>
         <button className={styles.formTest} onClick={() => setTestModal(true)}>Please fill the form to Register!</button>
         <h3 className={styles.formTitle}>Full name</h3>
         <input className={styles.formInput}
@@ -146,6 +146,7 @@ const Register: React.FC = () => {
           value={fullName} 
           onChange={fullNameHandler}
           onBlur={fullNameBlur}
+          data-testid='fullname-element'
           style={fullNameHasError ? {borderColor: 'red'} : {}} />
 
         <h3 className={styles.formTitle}>Username</h3>
@@ -153,6 +154,7 @@ const Register: React.FC = () => {
           type="text"
           value={username} 
           onChange={usernameHandler}
+          data-testid='username-element'
           onBlur={usernameBlur}
           style={usernameHasError ? {borderColor: 'red'} : {}} />
 
@@ -161,13 +163,15 @@ const Register: React.FC = () => {
           type="text"
           value={email} 
           onChange={emailHandler}
+          data-testid='email-element'
           onBlur={emailBlur}
           style={emailHasError ? {borderColor: 'red'} : {}} />
 
         <h3 className={styles.formTitle}>Password</h3>
         <input className={styles.formInput}
           type="password" 
-          value={password} 
+          value={password}
+          data-testid='password-element'
           onChange={passwordHandler}
           onBlur={passwordBlur}
           style={passwordHasError ? {borderColor: 'red'} : {}} />
@@ -175,8 +179,9 @@ const Register: React.FC = () => {
         <h3 className={styles.formTitle}>Confirm Password</h3>
         <input className={styles.formInput}
           type="password" 
-          value={password2} 
+          value={password2}
           onChange={password2Handler}
+          data-testid='password2-element'
           onBlur={password2Blur}
           style={password2HasError ? {borderColor: 'red'} : {}} />
 

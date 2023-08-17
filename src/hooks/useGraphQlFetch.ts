@@ -9,7 +9,7 @@ interface FetchResult {
   error: any;
 }
 
-const useGraphQlFetch = (query: any) => {
+const useGraphQlFetch = (query: string) => {
   const [data, setData] = useState<any | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any | null>(null);

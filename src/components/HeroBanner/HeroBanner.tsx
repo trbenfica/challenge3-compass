@@ -11,7 +11,7 @@ import apple from '../../assets/apple.png'
 const HeroBanner: React.FC = () => {
 
   return (
-    <div className={styles.hero}>
+    <div className={styles.hero} data-testid='hero-banner'>
       <div className={styles.heroBG}>
         <img className={styles.heroBGImg1} src={ornament1} alt="" />
         <img className={styles.heroBGImg2} src={ornament2} alt="" />
