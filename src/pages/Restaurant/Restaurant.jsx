@@ -9,15 +9,14 @@ import dummyPhotos from '../../constants/dummyPhotos';
 import SearchBarRestaurant from './SearchBarRestaurant/SearchBarRestaurant';
 import DishCard from './Dish/DishCard';
 import useGraphQlFetch from '../../hooks/useGraphQlFetch';
-import {getRestaurantByIdQuery} from '../../services/getRestaurantByIdQuery';
+import { queryRestaurantById } from '../../services/queriesService';
 
 export default function Restaurant() {
 
   const { slug } = useParams();
   const [itemQnt, setItemQnt] = useState(0);
-  const query = getRestaurantByIdQuery(slug);
   
-  const { data, loading, error } = useGraphQlFetch(query);
+  const { data, loading, error } = useGraphQlFetch(queryRestaurantById(slug));
 
   const decreaseHandler = () => {
     if(itemQnt > 0)

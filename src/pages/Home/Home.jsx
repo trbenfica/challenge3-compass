@@ -8,7 +8,7 @@ import dummyPhotos from '../../constants/dummyPhotos';
 import useGraphQlFetch from '../../hooks/useGraphQlFetch';
 import ModalWindow from '../../components/ModalWindow/ModalWindow';
 import { useState } from 'react';
-import queries from '../../services/httpQueries';
+import { queryAllRestaurants } from '../../services/queriesService';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(true);
@@ -17,7 +17,7 @@ export default function Home() {
     setIsModalOpen(false);
   }
 
-  const { data, loading, error } = useGraphQlFetch(queries.getAllRestaurants);
+  const { data, loading, error } = useGraphQlFetch(queryAllRestaurants());
   console.log(data)
 
   return (

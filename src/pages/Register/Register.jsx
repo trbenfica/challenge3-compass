@@ -5,6 +5,9 @@ import { useState } from 'react';
 import ModalWindow from '../../components/ModalWindow/ModalWindow';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { mutationRegisterUser } from '../../services/queriesService';
+import { BASE_URI } from '../../services/BASE_URI';
+import headers from '../../services/config/Auth';
 
 export default function Register() {
 
@@ -16,7 +19,7 @@ export default function Register() {
   function closeModal() {
     setIsModalOpen(false);
     setTestModal(false);
-    if(status === 201) {
+    if(status === 200) {
       navigate('/login');
     }
     else ;
@@ -25,28 +28,20 @@ export default function Register() {
   function sumbitHandler (event) {
     event.preventDefault();
     if (formIsValid) {
-      const newUserData = `{
-        "username": "${username}",
-        "password": "${password}"
-      }`;
-      sendHttpRequest(newUserData);
+      sendHttpRequest(username, password);
     }
   };
 
   // Para submissão dos dados
-  const sendHttpRequest = async (body) => {
+  const sendHttpRequest = async (username, password) => {
     try {
       const response = await axios({
         method: 'POST',
-        url: 'https://parseapi.back4app.com/users',
-        headers: {
-          "X-Parse-Application-Id": "DSiIkHz2MVbCZutKS7abtgrRVsiLNNGcs0L7VsNL",
-          'X-Parse-Master-Key': '0cpnqkSUKVkIDlQrNxameA6OmjxmrA72tsUMqVG9',
-          "X-Parse-Client-Key": 'zXOqJ2k44R6xQqqlpPuizAr3rs58RhHXfU7Aj20V',
-          "X-Parse-Revocable-Session": 1,
-          "Content-Type": "application/json"
-        },
-        data: body
+        url: BASE_URI,
+        headers: headers,
+        data: {
+          query: mutationRegisterUser(username, password)
+        }
       });
       setStatus(response.status);
       setIsModalOpen(true);
@@ -113,7 +108,7 @@ export default function Register() {
 
   let modalContent = '';
   if(status !== null) {
-    if(status === 201) {
+    if(status === 200) {
       modalContent = 
         <>
           <img src='https://cdn-icons-png.flaticon.com/128/4315/4315445.png' alt="" />
