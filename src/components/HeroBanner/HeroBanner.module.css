@@ -54,14 +54,14 @@
   font: 400 1rem/25px Inter;
 }
 .heroMainPhotos {
-  gap: 1em;
+  gap: 2.2em;
 }
 .heroMainPhotos > img {
   width: 15em;
   transition: all 0.4s;
 }
 .heroMainPhotos > img:hover {
-  transform: scale(1.07);
+  transform: scale(1.2);
 }
 
 @media (max-width: 800px) {
@@ -81,6 +81,9 @@
     width: 100%;
     transition: all 0.3s;
     margin-top: 1em;
+  }
+  .heroMainPhotos > img:hover {
+    transform: scale(1.08);
   }
   .heroMainPhotos img:nth-child(1n+2) {
     display: none;

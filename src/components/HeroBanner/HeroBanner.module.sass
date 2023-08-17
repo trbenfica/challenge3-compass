@@ -43,13 +43,13 @@
         font: 400 1rem/25px Inter
     &Photos
       @extend %flexbox-centralized
-      gap: 1em
+      gap: 2.2em
       // marg
       > img
         width: 15em
         transition: all 0.4s
         &:hover
-          transform: scale(1.07)
+          transform: scale(1.2)
 
 
 @media(max-width: 800px)
@@ -69,6 +69,8 @@
         width: 100%
         transition: all 0.3s
         margin-top: 1em
+        &:hover
+          transform: scale(1.08)
       & img:nth-child(1n + 2)
         display: none
     &Title

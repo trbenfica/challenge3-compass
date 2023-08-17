@@ -4,11 +4,21 @@ import logo from '../../assets/logo.png';
 import search from '../../assets/search.png';
 import bag from '../../assets/bag.png';
 import { Turn as Hamburger } from 'hamburger-react'
-import {useState} from 'react';
+import {ReactNode, useState} from 'react';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  id?: string | undefined;
+  username?: string | undefined
+}
+
+const Header: React.FC<HeaderProps> = (props) => {
 
   const [isOpen, setOpen] = useState<boolean>(false);
+  let signUpContent: ReactNode = <a className={styles.headerRightLogin} href="/login/">Sign In</a>;
+
+  if(props.id !== undefined) {
+    signUpContent = <button className={styles.headerRightLogin}>Bem vindo {props.username}!</button>
+  }
 
   return(
     <header className={styles.header}>
@@ -21,7 +31,7 @@ const Header: React.FC = () => {
           <img src={search} alt="" />
         </div>
         <img className={styles.headerRightBag} src={bag} alt="" />
-        <a className={styles.headerRightLogin} href="/login/">Sign In</a>
+        {signUpContent}
       </div>
       <div className={styles.dropdown}>
         <Hamburger toggled={isOpen} toggle={setOpen} />

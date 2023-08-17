@@ -19,7 +19,9 @@ interface Restaurant {
   };
 }
 
-const Home: React.FC = () => {
+
+
+const Home: React.FC = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   function closeModal() {
