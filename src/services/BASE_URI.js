@@ -1,1 +1,0 @@
-export const BASE_URI = 'https://parseapi.back4app.com/graphql';

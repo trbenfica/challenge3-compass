@@ -1,12 +1,18 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BASE_URI } from '../services/BASE_URI';
+import BASE_URI from '../services/BASE_URI';
 import headers from '../services/config/Auth';
 
-const useGraphQlFetch = (query) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+interface FetchResult {
+  data: any;
+  loading: boolean;
+  error: any;
+}
+
+const useGraphQlFetch = (query: any) => {
+  const [data, setData] = useState<any | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<any | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {

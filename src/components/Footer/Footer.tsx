@@ -5,8 +5,7 @@ import instagramLogo from '../../assets/instagram.png';
 import facebookLogo from '../../assets/facebook.png';
 import twitterLogo from '../../assets/twitter.png';
 
-export default function Footer() {
-
+ const Footer: React.FC = () => {
   return (
     <footer className={styles.container}>
       <div className={styles.footer}>
@@ -29,3 +28,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default Footer;

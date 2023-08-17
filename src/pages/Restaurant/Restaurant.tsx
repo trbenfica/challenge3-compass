@@ -11,10 +11,10 @@ import DishCard from './Dish/DishCard';
 import useGraphQlFetch from '../../hooks/useGraphQlFetch';
 import { queryRestaurantById } from '../../services/queriesService';
 
-export default function Restaurant() {
+const Restaurant: React.FC = () => {
 
-  const { slug } = useParams();
-  const [itemQnt, setItemQnt] = useState(0);
+  const { slug } = useParams<{ slug: any }>();
+  const [itemQnt, setItemQnt] = useState<number>(0);
   
   const { data, loading, error } = useGraphQlFetch(queryRestaurantById(slug));
 
@@ -57,7 +57,7 @@ export default function Restaurant() {
 
 
         <div className={styles.contentMain}>
-          {data && data.data.fitMe.topDishes.map(dish => (
+          {data && data.data.fitMe.topDishes.map((dish: any) => (
             <DishCard
               key={dish.name}
               name={dish.name} 
@@ -115,3 +115,5 @@ export default function Restaurant() {
     </>
   )
 }
+
+export default Restaurant;

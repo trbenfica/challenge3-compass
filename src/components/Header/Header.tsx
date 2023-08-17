@@ -6,9 +6,9 @@ import bag from '../../assets/bag.png';
 import { Turn as Hamburger } from 'hamburger-react'
 import {useState} from 'react';
 
-export default function Header() {
+const Header: React.FC = () => {
 
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState<boolean>(false);
 
   return(
     <header className={styles.header}>
@@ -35,3 +35,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header;

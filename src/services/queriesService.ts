@@ -1,5 +1,5 @@
 
-export function mutationRegisterUser(username, password) {
+export function mutationRegisterUser(username: string, password: string) {
   return (`mutation SignUp{
     signUp(input: {
       fields: {
@@ -18,7 +18,7 @@ export function mutationRegisterUser(username, password) {
   }`);
 }
 
-export function mutationLoginUser(username, password) {
+export function mutationLoginUser(username: string, password: string) {
   return (`mutation LogIn{
     logIn(input: {
       username: "${username}"
@@ -37,7 +37,7 @@ export function mutationLoginUser(username, password) {
   }`);
 }
 
-export function queryRestaurantById(id) {
+export function queryRestaurantById(id: string) {
   return (`query GetRestaurantById {
     fitMe(id: "${id}") {
         name

@@ -5,7 +5,7 @@ import BasePage from './pages/BasePage/BasePage';
 import Home from './pages/Home/Home';
 import Restaurant from './pages/Restaurant/Restaurant';
 
-export default function App() {
+const App: React.FC = () => {
   const router = createBrowserRouter([
     { path:'/', element: <Home />},
     { path:'/login', element: <BasePage content='login'/> }, 
@@ -16,5 +16,6 @@ export default function App() {
   return (
     <RouterProvider router={router} />
   );
-
 }
+
+export default App;

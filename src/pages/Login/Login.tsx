@@ -5,14 +5,18 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ModalWindow from '../../components/ModalWindow/ModalWindow';
-import { BASE_URI } from '../../services/BASE_URI';
+import BASE_URI from '../../services/BASE_URI';
 import { mutationLoginUser } from '../../services/queriesService';
 import headers from '../../services/config/Auth';
 
-export default function Login() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [response, setResponse] = useState(null);
-  const [sucess, setSucess] = useState(null);
+interface ResponseData {
+  errors?: Array<string>;
+  
+}
+
+const Login: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [response, setResponse] = useState<any | null>(null);
   const navigate = useNavigate();
 
   // Para submissão dos dados
@@ -31,7 +35,7 @@ export default function Login() {
         setIsModalOpen(true);
       else
         navigate('/');
-    } catch (error) {
+    } catch (error: any) {
       if (error.response) {
         setResponse(error.response.status);
       } else {
@@ -44,7 +48,7 @@ export default function Login() {
     setIsModalOpen(false);
   }
 
-  function sumbitHandler (event) {
+  function sumbitHandler (event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (formIsValid) {
       sendHttpRequest();
@@ -113,3 +117,5 @@ export default function Login() {
     </form>
   );
 }
+
+export default Login;

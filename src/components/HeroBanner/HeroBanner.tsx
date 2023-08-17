@@ -8,7 +8,7 @@ import illustration3 from '../../assets/restaurantPhoto4.jpeg'
 import banana from '../../assets/banana.png'
 import apple from '../../assets/apple.png'
 
-export default function HeroBanner() {
+const HeroBanner: React.FC = () => {
 
   return (
     <div className={styles.hero}>
@@ -36,3 +36,5 @@ export default function HeroBanner() {
     </div>
   );
 }
+
+export default HeroBanner;

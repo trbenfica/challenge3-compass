@@ -3,7 +3,7 @@ import styles from './RestaurantCard.module.css';
 import star from '../../assets/star.png';
 import deliveryIcon from '../../assets/deliveryIcon.png';
 
-const RestaurantCard: React.FC<{ name:string, image:string, rating:number, deliveryTime:number }> = (props) => {
+const RestaurantCard: React.FC<{ name:string, image:string, rating:number, deliveryTime:string }> = (props) => {
   return (
     <div className={styles.card}>
       <img className={styles.cardPhoto} src={props.image} alt="" />

@@ -10,7 +10,16 @@ import ModalWindow from '../../components/ModalWindow/ModalWindow';
 import { useState } from 'react';
 import { queryAllRestaurants } from '../../services/queriesService';
 
-export default function Home() {
+interface Restaurant {
+  node: {
+    objectId: string;
+    name: string;
+    rating: number;
+    deliveryTime: string;
+  };
+}
+
+const Home: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   function closeModal() {
@@ -18,7 +27,7 @@ export default function Home() {
   }
 
   const { data, loading, error } = useGraphQlFetch(queryAllRestaurants());
-  console.log(data)
+  // console.log(data)
 
   return (
     <>
@@ -33,7 +42,7 @@ export default function Home() {
         <h1 className={styles.pageTitle}>Restaurants</h1>
         <div className={styles.pageRestaurants}>
           {loading && <div className={styles.pageLoader} />}
-          {data && data.data.fitMes.edges.map(restaurant => (
+          {data && data.data.fitMes.edges.map((restaurant: Restaurant) => (
             <a key={restaurant.node.objectId} href={`/restaurant/${restaurant.node.objectId}`}>
               <RestaurantCard
                 name={restaurant.node.name} 
@@ -49,3 +58,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

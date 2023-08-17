@@ -8,7 +8,7 @@ import restaurantPhoto6 from '../assets/restaurant6.png';
 import restaurantPhoto7 from '../assets/restaurant7.png';
 import restaurantPhoto8 from '../assets/restaurant8.png';
 
-const dummyPhotos = {
+const dummyPhotos: Record<string, string> = {
   'Z1EriGZCyW': restaurantPhoto1,
   'IC8BxyRL2y': restaurantPhoto2,
   'A0OMMIWDSo': restaurantPhoto3,

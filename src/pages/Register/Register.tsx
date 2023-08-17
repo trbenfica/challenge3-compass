@@ -1,19 +1,18 @@
 
 import styles from '../Login/FormItems.module.sass';
 import useInput from '../../hooks/use-input';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import ModalWindow from '../../components/ModalWindow/ModalWindow';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { mutationRegisterUser } from '../../services/queriesService';
-import { BASE_URI } from '../../services/BASE_URI';
+import BASE_URI from '../../services/BASE_URI';
 import headers from '../../services/config/Auth';
 
-export default function Register() {
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [testModal, setTestModal] = useState(false);
-  const [status, setStatus] = useState(null);
+const Register: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [testModal, setTestModal] = useState<boolean>(false);
+  const [status, setStatus] = useState<number | null>(null);
   const navigate = useNavigate();
 
   function closeModal() {
@@ -22,10 +21,9 @@ export default function Register() {
     if(status === 200) {
       navigate('/login');
     }
-    else ;
   }
 
-  function sumbitHandler (event) {
+  function sumbitHandler (event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (formIsValid) {
       sendHttpRequest(username, password);
@@ -33,7 +31,7 @@ export default function Register() {
   };
 
   // Para submissão dos dados
-  const sendHttpRequest = async (username, password) => {
+  const sendHttpRequest = async (username: string, password: string) => {
     try {
       const response = await axios({
         method: 'POST',
@@ -45,11 +43,11 @@ export default function Register() {
       });
       setStatus(response.status);
       setIsModalOpen(true);
-    } catch (error) {
+    } catch (error: any) {
       if (error.response) {
         setStatus(error.response.status);
       } else {
-        setStatus('Error: Network Error');
+        setStatus(400);
       }
     }
   };
@@ -106,7 +104,7 @@ export default function Register() {
       formIsValid = true;
   }
 
-  let modalContent = '';
+  let modalContent: React.ReactNode;
   if(status !== null) {
     if(status === 200) {
       modalContent = 
@@ -213,3 +211,5 @@ export default function Register() {
     </>
   );
 }
+
+export default Register;

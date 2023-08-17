@@ -5,7 +5,7 @@ import emptyStar from '../../../assets/emptyStar.png';
 import orangeStar from '../../../assets/orangeStar.png';
 import search from '../../../assets/search.png';
 
-export default function Restaurant() {
+ const SearchBarRestaurant: React.FC = () => {
 
   const [searchInput, setSearchInput] = useState<string>('');
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
@@ -49,3 +49,5 @@ export default function Restaurant() {
     </div>
   );
 }
+
+export default SearchBarRestaurant;
