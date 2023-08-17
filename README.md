@@ -1,12 +1,12 @@
 # Desafio 3 - Front End Journey
 
-Este projeto consiste do 3º do programa de bolsas da Compass. O objetivo foi desenvolver uma aplicação de venda de alimentos saudáveis, FitMe, a partir do modelo fornecido.
+Este projeto consiste no 3º desafio do programa de bolsas da Compass. O objetivo foi desenvolver uma aplicação de venda de alimentos saudáveis, FitMe, a partir do modelo fornecido.
 
 ## Para Rodar
 
 Clone este repositório:
 ```console
-$ git clone https://github.com/AntonniSMoraes/Desafio-02-Front-End-Journey.git
+$ git clone https://github.com/trbenfica/challenge3-compass.git
 ```
 Instale as dependências com:
 ```console
