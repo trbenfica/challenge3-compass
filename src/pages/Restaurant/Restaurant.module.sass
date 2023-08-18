@@ -1,12 +1,19 @@
 
 @use './../../constants/_vars' as *
 
+.pageLoader
+  width: 100%
+  height: 100vh
+  background:  url('https://i.pinimg.com/originals/c4/cb/9a/c4cb9abc7c69713e7e816e6a624ce7f8.gif') top no-repeat
+  z-index: 1
+  margin-top: 10em
 
 .content
   @extend %page-container-wide
   margin: 3em auto
   @extend %flexbox-centralized
   align-items: start
+  
   &Navs
     padding: 0 3em
     justify-self: end
@@ -22,6 +29,8 @@
 
     
 @media (max-width: 800px)
+  .pageLoader
+    margin-top: 5em
   .content
     flex-direction: column
     align-items: center

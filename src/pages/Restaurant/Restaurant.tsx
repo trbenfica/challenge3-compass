@@ -26,8 +26,12 @@ const Restaurant: React.FC = () => {
         rating={data.data.fitMe.rating} 
         deliveryTime={data.data.fitMe.deliveryTime}
       />}
+
+      {loading && <div className={styles.pageLoader} />}
       <SearchBarRestaurant />
-      <div className={styles.content}>
+      
+      { !loading && <div className={styles.content}>
+        
         <nav className={styles.contentNavs}>
           <li>Recommended</li>
           <li>Breakfast Box</li>
@@ -57,7 +61,7 @@ const Restaurant: React.FC = () => {
 
         <Cart />
 
-      </div>
+      </div>}
       <Footer />
     </>
   )
