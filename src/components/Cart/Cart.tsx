@@ -18,13 +18,17 @@ const Cart: React.FC = () => {
   const sessionToken = sessionStorage.getItem('userCart');
   let currentCart: Array<CardItemInterface>;
   let numItems = 0;
+  let totalPriceLocal = 0;
   if(sessionToken !== null) {
     currentCart = JSON.parse(sessionToken);
     let numItemsStr = sessionStorage.getItem('numItemsCart');
     if(numItemsStr !== null) {
       numItems = parseFloat(numItemsStr);
     }
-    
+    // let totalPriceLocalStr = sessionStorage.getItem('totalPriceCart');
+    // if(totalPriceLocalStr !== null) {
+    //   totalPriceLocal = parseFloat(totalPriceLocalStr);
+    // }
     // setCart(JSON.parse(sessionToken));
   }
   else {
