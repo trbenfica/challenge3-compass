@@ -4,10 +4,12 @@ import LoginContext from '../../../services/LoginContext';
 import styles from './DishCard.module.css';
 import { DishCardInterface } from '../../../services/DishCardInterface';
 import { CardItemInterface } from '../../../services/CartItemInterface';
+import { useParams } from 'react-router-dom';
 
 const DishCard: React.FC<DishCardInterface> = (props) => {
 
-  const {userCart, setUserCart, totalAmount, setTotalAmount} = useContext(LoginContext);
+  const {userCart, setUserCart, totalPrice, setTotalPrice} = useContext(LoginContext);
+  // const { slug } = useParams<{ slug: any }>();
 
   const addItemToCart = () => {
     let newItem: CardItemInterface = {
@@ -18,10 +20,10 @@ const DishCard: React.FC<DishCardInterface> = (props) => {
     setUserCart((prev: Array<CardItemInterface>) =>  (
       [...prev, newItem]
     ));
-    setTotalAmount((prev:number) => prev + 1);
+    setTotalPrice((prev:number) => (
+      parseFloat((prev + newItem.price).toFixed(2))
+    ));
   }
-
-  // console.log(userCart);
 
   return (
     <div className={styles.container} data-testid='dish-card'>

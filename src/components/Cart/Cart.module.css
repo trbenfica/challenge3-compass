@@ -50,5 +50,23 @@
   font-size: 0.875em;
   color: #808080;
 }
+.cartCheckout {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background: #FC8019;
+  height: 4em;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  position: relative;
+  margin-top: 1em;
+  transition: all 0.3s;
+}
+.cartCheckout > h1 {
+  color: white;
+  font-weight: normal;
+}
+.cartCheckout:hover {
+  transform: scale(0.96);
+}
 
 /*# sourceMappingURL=Cart.module.css.map */

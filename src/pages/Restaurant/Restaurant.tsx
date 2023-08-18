@@ -13,7 +13,7 @@ import Cart from '../../components/Cart/Cart';
 
 const Restaurant: React.FC = () => {
 
-  const { slug } = useParams<{ slug: any }>();  
+  const { slug } = useParams<{ slug: any }>();
   const { data, loading, error } = useGraphQlFetch(queryRestaurantById(slug));
 
   return (

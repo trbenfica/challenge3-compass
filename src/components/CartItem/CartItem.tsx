@@ -5,21 +5,20 @@ import LoginContext from '../../services/LoginContext';
 import { CardItemInterface } from '../../services/CartItemInterface';
 
 const CartItem: React.FC<CardItemInterface> = (props) => {
-  const [itemQnt, setItemQnt] = useState<number>(1);
-  const {userCart, setUserCart, totalAmount, setTotalAmount} = useContext(LoginContext);
+  const [itemAmount, setItemAmount] = useState<number>(1);
+  const {userCart, setUserCart, totalPrice, setTotalPrice} = useContext(LoginContext);
 
   const decreaseHandler = () => {
-    if(itemQnt > 0) {
-      setItemQnt(prev => prev - 1);
-      // props.setTotalAmountCb((prev:number) => prev - 1);
-      setTotalAmount((prev: number) => prev - 1);
+    if ((totalPrice - props.price > 0) && itemAmount > 0) {
+      setItemAmount(prev => prev - 1);
+      setTotalPrice((prevTotalPrice:number) => parseFloat((prevTotalPrice - props.price).toFixed(2)));
     }
   }
 
   const increaseHandler = () => {
-    // setTotalAmount((prev:number) => prev + 1);
-    setItemQnt(prev => prev + 1);
-    setTotalAmount((prev: number) => prev + 1);
+    // setItemAmount(prev => prev + 1);
+    setItemAmount(itemAmount + 1);
+    setTotalPrice((prevTotalPrice:number) => parseFloat((prevTotalPrice + props.price).toFixed(2)));
   }
 
   return (
@@ -31,7 +30,7 @@ const CartItem: React.FC<CardItemInterface> = (props) => {
       </div>
       <div className={styles.cartItemRight}>
         <button onClick={decreaseHandler} className={styles.cartItemRightButton}>-</button>
-        <p className={styles.cartItemRightQnt}>{itemQnt}</p>
+        <p className={styles.cartItemRightQnt}>{itemAmount}</p>
         <button onClick={increaseHandler} className={styles.cartItemRightButton}>+</button>
       </div>
     </div>

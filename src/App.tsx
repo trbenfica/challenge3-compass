@@ -11,7 +11,7 @@ import { CardItemInterface } from './services/CartItemInterface';
 
 const App: React.FC = () => {
   const [userCart, setUserCart] = useState<Array<CardItemInterface>>([]);
-  const [totalAmount, setTotalAmount] = useState<number>(userCart.length);
+  const [totalPrice, setTotalPrice] = useState<number>(userCart.length);
 
   const router = createBrowserRouter([
     { path:'/', element: <Home />},
@@ -22,7 +22,7 @@ const App: React.FC = () => {
   ]);
 
   return (
-    <LoginContext.Provider value={{userCart, setUserCart, totalAmount, setTotalAmount}}>
+    <LoginContext.Provider value={{userCart, setUserCart, totalPrice, setTotalPrice}}>
       <RouterProvider router={router} />
     </LoginContext.Provider>
   );

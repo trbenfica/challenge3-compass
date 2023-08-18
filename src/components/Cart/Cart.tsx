@@ -7,19 +7,19 @@ import { DishCardInterface } from '../../services/DishCardInterface';
 
 const Cart: React.FC = () => {
 
-  const {userCart, setUserCart, totalAmount, setTotalAmount} = useContext(LoginContext);
+  const {userCart, setUserCart, totalPrice, setTotalPrice} = useContext(LoginContext);
 
   // const [totalAmount, setTotalAmount] = useState<number>(userCart.length);
-  const sum = userCart.reduce((accumulator: number, currentValue: DishCardInterface) => accumulator + currentValue.price, 0);
+  // const sum = userCart.reduce((accumulator: number, currentValue: DishCardInterface) => accumulator + currentValue.price, 0);
   // console.log(sum);
   // console.log(totalAmount);
-  const [totalPrice, setTotalPrice] = useState<number>(sum);
+  // const [totalPrice, setTotalPrice] = useState<number>(sum);
 
   return (
     <div className={styles.cart} data-testid='cart'>
       <div className={styles.cartTitles}>
         <h1>Cart</h1>
-        <p>{totalAmount} Items</p>
+        <p>{userCart.length} Items</p>
       </div>
 
       {
@@ -28,7 +28,7 @@ const Cart: React.FC = () => {
             key={Math.floor(Math.random() * 500)}
             name={cartItem.name}
             price={cartItem.price}
-            restaurant={'testing'}
+            restaurant={cartItem.restaurant}
           />
         ))
       }
@@ -38,9 +38,11 @@ const Cart: React.FC = () => {
           <h1>Subtotal</h1>
           <p>Extra charges may apply</p>
         </div>
-          <h1>$ {totalPrice}</h1>
+        <h1>$ {totalPrice}</h1>
       </div>
+      <button className={styles.cartCheckout}><h1>Checkout</h1></button>
     </div>
+    
   );
 }
 
