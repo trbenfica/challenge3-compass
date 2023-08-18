@@ -16,6 +16,7 @@ interface Restaurant {
     name: string;
     rating: number;
     deliveryTime: string;
+    location: string;
   };
 }
 
@@ -46,6 +47,7 @@ const Home: React.FC = (props) => {
               <RestaurantCard
                 name={restaurant.node.name} 
                 image={dummyPhotos[restaurant.node.objectId]}
+                location={restaurant.node.location}
                 rating={restaurant.node.rating}
                 deliveryTime={restaurant.node.deliveryTime}
               />

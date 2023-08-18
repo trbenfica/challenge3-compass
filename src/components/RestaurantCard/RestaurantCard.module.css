@@ -39,7 +39,7 @@
   gap: 0.5em;
 }
 .cardContainerRating > p {
-  font: 500 1rem Poppins;
+  font: 500 0.8rem Poppins;
   color: #808080;
 }
 .cardContainerDeliveryTime {

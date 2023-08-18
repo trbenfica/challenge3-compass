@@ -41,7 +41,6 @@ export function queryRestaurantById(id: string) {
   return (`query GetRestaurantById {
     fitMe(id: "${id}") {
         name
-        image
         location
         name
         rating
@@ -71,7 +70,7 @@ export function queryAllRestaurants() {
           name
           rating
           deliveryTime
-          image
+          location
         }
       }
     }
