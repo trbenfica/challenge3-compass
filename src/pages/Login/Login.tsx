@@ -33,8 +33,11 @@ const Login: React.FC = () => {
       setResponse(response);
       if(response.data.errors !== undefined)
         setIsModalOpen(true);
-      else
+      else {
+        sessionStorage.setItem("userId", response.data.data.logIn.viewer.user.id);
+        sessionStorage.setItem("username", response.data.data.logIn.viewer.user.username);
         navigate('/');
+      }
     } catch (error: any) {
       if (error.response) {
         setResponse(error.response.status);

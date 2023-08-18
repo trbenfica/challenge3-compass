@@ -1,0 +1,54 @@
+.cartTitles, .cartItem, .cartItemRight, .cartSubtotal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart {
+  width: 20em;
+}
+.cartTitles {
+  justify-content: space-between;
+  margin-bottom: 1.2em;
+}
+.cartTitles > h1 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.cartItem {
+  justify-content: space-between;
+  margin: 2em 0;
+}
+.cartItemLeftRestaurant {
+  margin-bottom: 0.6em;
+}
+.cartItemLeftRestaurant span {
+  color: #FC8019;
+}
+.cartItemLeftPrice {
+  color: #808080;
+}
+.cartItemRight {
+  gap: 1em;
+}
+.cartItemRight > * {
+  font-size: 1.3em;
+}
+.cartItemRight > button {
+  border-radius: 30px;
+  border: none;
+  background: none;
+}
+.cartSubtotal {
+  justify-content: space-between;
+}
+.cartSubtotal h1 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.cartSubtotal p {
+  font-size: 0.875em;
+  color: #808080;
+}
+
+/*# sourceMappingURL=Cart.module.css.map */

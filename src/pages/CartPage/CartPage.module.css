@@ -1,0 +1,32 @@
+.pageInputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  width: clamp(300px, 85%, 1300px);
+  margin: 0 auto;
+}
+
+.page {
+  margin: 2em auto;
+  min-height: 650px;
+}
+.pageTitle {
+  margin-top: 2em;
+}
+.pageHr {
+  border-top: 1px solid white;
+}
+.pageInputs {
+  margin-top: 4em;
+}
+
+@media (max-width: 800px) {
+  .page {
+    min-height: 500px;
+  }
+}
+
+/*# sourceMappingURL=CartPage.module.css.map */

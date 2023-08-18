@@ -1,0 +1,19 @@
+
+@use './../../constants/_vars' as *
+
+.page
+  @extend %page-container
+  margin: 2em auto
+  min-height: 650px
+  &Title
+    margin-top: 2em
+  &Hr
+    border-top: 1px solid white
+  &Inputs
+    @extend %flexbox-centralized
+    margin-top: 4em
+    
+@media(max-width: 800px)
+  .page
+    min-height: 500px
+    

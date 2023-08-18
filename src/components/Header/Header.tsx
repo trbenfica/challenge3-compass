@@ -6,18 +6,15 @@ import bag from '../../assets/bag.png';
 import { Turn as Hamburger } from 'hamburger-react'
 import {ReactNode, useState} from 'react';
 
-interface HeaderProps {
-  id?: string | undefined;
-  username?: string | undefined
-}
-
-const Header: React.FC<HeaderProps> = (props) => {
+const Header: React.FC = () => {
 
   const [isOpen, setOpen] = useState<boolean>(false);
   let signUpContent: ReactNode = <a className={styles.headerRightLogin} href="/login/">Sign In</a>;
 
-  if(props.id !== undefined) {
-    signUpContent = <button className={styles.headerRightLogin}>Bem vindo {props.username}!</button>
+  const sessionToken = sessionStorage.getItem('userId');
+  if(sessionToken !== null) {
+    const username = sessionStorage.getItem('username');
+    signUpContent = <button className={styles.headerRightLogin}>Olá {username}</button>
   }
 
   return(
@@ -30,7 +27,9 @@ const Header: React.FC<HeaderProps> = (props) => {
           <input type="text" placeholder='Enter item or restaurant you are looking for' />
           <img src={search} alt="" />
         </div>
-        <img className={styles.headerRightBag} src={bag} alt="" />
+        <a href="/cart">
+          <img className={styles.headerRightBag} src={bag} alt="" />
+        </a>
         {signUpContent}
       </div>
       <div className={styles.dropdown}>
