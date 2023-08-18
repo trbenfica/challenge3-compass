@@ -1,14 +1,27 @@
 
+import { useContext } from 'react'
+import LoginContext from '../../../services/LoginContext';
 import styles from './DishCard.module.css';
+import { DishCardInterface } from '../../../services/DishCardInterface';
+import { CardItemInterface } from '../../../services/CartItemInterface';
 
-interface DishCardProps {
-  name: string;
-  price: number;
-  description: string;
-  img: any;
-}
+const DishCard: React.FC<DishCardInterface> = (props) => {
 
-const DishCard: React.FC<DishCardProps> = (props) => {
+  const {userCart, setUserCart, totalAmount, setTotalAmount} = useContext(LoginContext);
+
+  const addItemToCart = () => {
+    let newItem: CardItemInterface = {
+      name: props.name,
+      price: props.price,
+      restaurant: 'Lean & Clean'
+    }
+    setUserCart((prev: Array<CardItemInterface>) =>  (
+      [...prev, newItem]
+    ));
+    setTotalAmount((prev:number) => prev + 1);
+  }
+
+  // console.log(userCart);
 
   return (
     <div className={styles.container} data-testid='dish-card'>
@@ -19,7 +32,7 @@ const DishCard: React.FC<DishCardProps> = (props) => {
       </div>
       <div className={styles.containerImg}>
         <img src={props.img} alt="" />
-        <button>Add +</button>
+        <button onClick={addItemToCart}>Add +</button>
       </div>
     </div>    
   )

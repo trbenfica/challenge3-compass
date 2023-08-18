@@ -1,0 +1,32 @@
+.cartItem, .cartItemRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartItem {
+  justify-content: space-between;
+  margin: 2em 0;
+}
+.cartItemLeftRestaurant {
+  margin-bottom: 0.6em;
+}
+.cartItemLeftRestaurant span {
+  color: #FC8019;
+}
+.cartItemLeftPrice {
+  color: #808080;
+}
+.cartItemRight {
+  gap: 1em;
+}
+.cartItemRight > * {
+  font-size: 1.3em;
+}
+.cartItemRight > button {
+  border-radius: 30px;
+  border: none;
+  background: none;
+}
+
+/*# sourceMappingURL=CartItem.module.css.map */

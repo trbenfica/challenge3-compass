@@ -83,13 +83,12 @@ const Login: React.FC = () => {
 
   return(
     <form className={styles.form} onSubmit={sumbitHandler} data-testid='login-component'>
-      {/* <h3 className={styles.formTitle}>Username</h3> */}
+      <h3 className={styles.formTitle}>Username</h3>
       {<ModalWindow isOpen={isModalOpen} onClose={closeModal}>
           <img src='https://cdn-icons-png.flaticon.com/128/2797/2797387.png' alt="" />
           <h1>Nome ou senha incorretos!</h1>
         </ModalWindow>
       }
-      <button className={styles.formTest} onClick={() => setIsModalOpen(true)}><h2>Username</h2></button>
       <input className={styles.formInput}
         type="text"
         value={username} 
