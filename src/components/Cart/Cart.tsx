@@ -4,6 +4,7 @@ import CartItem from '../CartItem/CartItem';
 import { useContext, useState } from 'react';
 import LoginContext from '../../services/LoginContext';
 import { DishCardInterface } from '../../services/DishCardInterface';
+import { CardItemInterface } from '../../services/CartItemInterface';
 
 const Cart: React.FC = () => {
 
@@ -14,16 +15,42 @@ const Cart: React.FC = () => {
   // console.log(sum);
   // console.log(totalAmount);
   // const [totalPrice, setTotalPrice] = useState<number>(sum);
+  const sessionToken = sessionStorage.getItem('userCart');
+  let currentCart: Array<CardItemInterface>;
+  let numItems = 0;
+  if(sessionToken !== null) {
+    currentCart = JSON.parse(sessionToken);
+    let numItemsStr = sessionStorage.getItem('numItemsCart');
+    if(numItemsStr !== null) {
+      numItems = parseFloat(numItemsStr);
+    }
+    
+    // setCart(JSON.parse(sessionToken));
+  }
+  else {
+    currentCart = userCart;
+  }
+
+  const trashCanHandler = () => {
+    sessionStorage.removeItem('userCart');
+    sessionStorage.removeItem('totalPriceCart');
+    sessionStorage.removeItem('numItemsCart');
+  }
 
   return (
     <div className={styles.cart} data-testid='cart'>
       <div className={styles.cartTitles}>
         <h1>Cart</h1>
-        <p>{userCart.length} Items</p>
+        <div className={styles.cartTitlesRight}>
+          <button onClick={trashCanHandler}>
+            <img src="https://cdn-icons-png.flaticon.com/128/3096/3096673.png" alt="" />
+          </button>
+          <p>{numItems} Items</p>
+        </div>
       </div>
 
       {
-        userCart.map((cartItem: any) => (
+        currentCart.map((cartItem: any) => (
           <CartItem
             key={Math.floor(Math.random() * 500)}
             name={cartItem.name}

@@ -4,7 +4,6 @@ import LoginContext from '../../../services/LoginContext';
 import styles from './DishCard.module.css';
 import { DishCardInterface } from '../../../services/DishCardInterface';
 import { CardItemInterface } from '../../../services/CartItemInterface';
-import { useParams } from 'react-router-dom';
 
 const DishCard: React.FC<DishCardInterface> = (props) => {
 
@@ -23,6 +22,10 @@ const DishCard: React.FC<DishCardInterface> = (props) => {
     setTotalPrice((prev:number) => (
       parseFloat((prev + newItem.price).toFixed(2))
     ));
+
+    sessionStorage.setItem('userCart', JSON.stringify([...userCart, newItem]));
+    sessionStorage.setItem('totalPriceCart', (totalPrice + newItem.price).toFixed(2));
+    sessionStorage.setItem('numItemsCart', userCart.length + 1);
   }
 
   return (

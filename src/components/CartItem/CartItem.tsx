@@ -16,8 +16,7 @@ const CartItem: React.FC<CardItemInterface> = (props) => {
   }
 
   const increaseHandler = () => {
-    // setItemAmount(prev => prev + 1);
-    setItemAmount(itemAmount + 1);
+    setItemAmount(prev => prev + 1);
     setTotalPrice((prevTotalPrice:number) => parseFloat((prevTotalPrice + props.price).toFixed(2)));
   }
 
