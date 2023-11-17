@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "./static/css/main.1d066218.css",
-    "main.js": "./static/js/main.cab9f095.js",
-    "static/js/787.aa532e39.chunk.js": "./static/js/787.aa532e39.chunk.js",
-    "static/media/restaurantPhoto1.png": "./static/media/restaurantPhoto1.59f7d3d01fe8f98689a1.png",
-    "static/media/restaurantPhoto2.png": "./static/media/restaurantPhoto2.f6a3bd6c04ff4cfb7f49.png",
-    "static/media/restaurantPhoto4.jpeg": "./static/media/restaurantPhoto4.837347b1187af3668c2e.jpeg",
-    "static/media/restaurant2.png": "./static/media/restaurant2.85b0b02d0450af85f504.png",
-    "static/media/restaurant4.png": "./static/media/restaurant4.85b0b02d0450af85f504.png",
-    "static/media/restaurant7.png": "./static/media/restaurant7.5478020496d3591ecfcf.png",
-    "static/media/restaurant1.png": "./static/media/restaurant1.afc7200a0cc58dd13ea2.png",
-    "static/media/restaurant5.png": "./static/media/restaurant5.aa3f7d1e21bd5ba4148b.png",
-    "static/media/restaurant8.png": "./static/media/restaurant8.7d5d1a4aa583f09c7a8d.png",
-    "static/media/restaurant6.png": "./static/media/restaurant6.f79e8b4b9aeae86a0eaa.png",
-    "static/media/restaurant3.png": "./static/media/restaurant3.f54e066bc7dcd08f55a8.png",
-    "static/media/orangeStar.png": "./static/media/orangeStar.d0cbd94e0a4a62fc2bf4.png",
-    "index.html": "./index.html",
-    "main.1d066218.css.map": "./static/css/main.1d066218.css.map",
-    "main.cab9f095.js.map": "./static/js/main.cab9f095.js.map",
-    "787.aa532e39.chunk.js.map": "./static/js/787.aa532e39.chunk.js.map"
+    "main.css": "/challenge3-compass/static/css/main.1d066218.css",
+    "main.js": "/challenge3-compass/static/js/main.8c057af9.js",
+    "static/js/787.aa532e39.chunk.js": "/challenge3-compass/static/js/787.aa532e39.chunk.js",
+    "static/media/restaurantPhoto1.png": "/challenge3-compass/static/media/restaurantPhoto1.59f7d3d01fe8f98689a1.png",
+    "static/media/restaurantPhoto2.png": "/challenge3-compass/static/media/restaurantPhoto2.f6a3bd6c04ff4cfb7f49.png",
+    "static/media/restaurantPhoto4.jpeg": "/challenge3-compass/static/media/restaurantPhoto4.837347b1187af3668c2e.jpeg",
+    "static/media/restaurant2.png": "/challenge3-compass/static/media/restaurant2.85b0b02d0450af85f504.png",
+    "static/media/restaurant4.png": "/challenge3-compass/static/media/restaurant4.85b0b02d0450af85f504.png",
+    "static/media/restaurant7.png": "/challenge3-compass/static/media/restaurant7.5478020496d3591ecfcf.png",
+    "static/media/restaurant1.png": "/challenge3-compass/static/media/restaurant1.afc7200a0cc58dd13ea2.png",
+    "static/media/restaurant5.png": "/challenge3-compass/static/media/restaurant5.aa3f7d1e21bd5ba4148b.png",
+    "static/media/restaurant8.png": "/challenge3-compass/static/media/restaurant8.7d5d1a4aa583f09c7a8d.png",
+    "static/media/restaurant6.png": "/challenge3-compass/static/media/restaurant6.f79e8b4b9aeae86a0eaa.png",
+    "static/media/restaurant3.png": "/challenge3-compass/static/media/restaurant3.f54e066bc7dcd08f55a8.png",
+    "static/media/orangeStar.png": "/challenge3-compass/static/media/orangeStar.d0cbd94e0a4a62fc2bf4.png",
+    "index.html": "/challenge3-compass/index.html",
+    "main.1d066218.css.map": "/challenge3-compass/static/css/main.1d066218.css.map",
+    "main.8c057af9.js.map": "/challenge3-compass/static/js/main.8c057af9.js.map",
+    "787.aa532e39.chunk.js.map": "/challenge3-compass/static/js/787.aa532e39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1d066218.css",
-    "static/js/main.cab9f095.js"
+    "static/js/main.8c057af9.js"
   ]
 }
