@@ -9,14 +9,14 @@ import restaurantPhoto7 from '../assets/restaurant7.png';
 import restaurantPhoto8 from '../assets/restaurant8.png';
 
 const dummyPhotos: Record<string, string> = {
-  'Z1EriGZCyW': restaurantPhoto1,
-  'IC8BxyRL2y': restaurantPhoto2,
-  'A0OMMIWDSo': restaurantPhoto3,
-  'GVHG4jZjO6': restaurantPhoto4,
-  'Wa0jkW2EnG': restaurantPhoto5,
-  'EZklVuYg5A': restaurantPhoto6,
-  'fHlatYL0Qx': restaurantPhoto7,
-  'WKITnCtFxE': restaurantPhoto8  
+  'AGfiN6oXNw': restaurantPhoto1,
+  'yyR90LkPII': restaurantPhoto2,
+  'etqkYEuCpF': restaurantPhoto3,
+  '0aj3Was0Y8': restaurantPhoto4,
+  'OerTMpUEOs': restaurantPhoto5,
+  'n9SYvKBlvo': restaurantPhoto6,
+  'X0ZAYLoQ4F': restaurantPhoto7,
+  'GTyg04NE0w': restaurantPhoto8  
 };
 
 export default dummyPhotos;
