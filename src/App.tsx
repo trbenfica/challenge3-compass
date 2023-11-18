@@ -1,5 +1,5 @@
 import './App.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, BrowserRouter } from 'react-router-dom';
 import BasePage from './pages/BasePage/BasePage';
 import Home from './pages/Home/Home';
 import Restaurant from './pages/Restaurant/Restaurant';
@@ -14,15 +14,16 @@ const App: React.FC = () => {
   const [totalPrice, setTotalPrice] = useState<number>(userCart.length);
 
   const router = createBrowserRouter([
-    { path:'/', element: <Home />},
-    { path:'/login', element: <BasePage content='login'/> }, 
-    { path:'/register', element: <BasePage content='register'/>},
-    { path:'/restaurant/:slug', element: <Restaurant />},
-    { path:'/cart', element: <CartPage />}
+    { path:'/challenge3-compass', element: <Home />},
+    { path:'/challenge3-compass/login', element: <BasePage content='login'/> }, 
+    { path:'/challenge3-compass/register', element: <BasePage content='register'/>},
+    { path:'/challenge3-compass/restaurant/:slug', element: <Restaurant />},
+    { path:'/challenge3-compass/cart', element: <CartPage />}
   ]);
 
   return (
     <LoginContext.Provider value={{userCart, setUserCart, totalPrice, setTotalPrice}}>
+
       <RouterProvider router={router} />
     </LoginContext.Provider>
   );

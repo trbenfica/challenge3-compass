@@ -22,7 +22,7 @@ const BasePage: React.FC<BasePageProps> = (props) => {
   return (
     <>
       <div className={styles.page}>
-        <a href="/">
+        <a href="/challenge3-compass/">
           <img className={styles.pageLogo} src={logo} alt="" />
         </a>
         <h3 className={styles.pageTitle}>

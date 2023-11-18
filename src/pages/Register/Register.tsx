@@ -210,7 +210,7 @@ const Register: React.FC = () => {
           Register
         </button>
         <p className={styles.formRegister}>
-          Already have an account? <a href='/login/'>Login</a>
+          Already have an account? <a href='/challenge3-compass/login/'>Login</a>
         </p>
       </form>
     </>
