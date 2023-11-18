@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/challenge3-compass/static/css/main.1d066218.css",
-    "main.js": "/challenge3-compass/static/js/main.8c057af9.js",
+    "main.js": "/challenge3-compass/static/js/main.49b77e2f.js",
     "static/js/787.aa532e39.chunk.js": "/challenge3-compass/static/js/787.aa532e39.chunk.js",
     "static/media/restaurantPhoto1.png": "/challenge3-compass/static/media/restaurantPhoto1.59f7d3d01fe8f98689a1.png",
     "static/media/restaurantPhoto2.png": "/challenge3-compass/static/media/restaurantPhoto2.f6a3bd6c04ff4cfb7f49.png",
@@ -17,11 +17,11 @@
     "static/media/orangeStar.png": "/challenge3-compass/static/media/orangeStar.d0cbd94e0a4a62fc2bf4.png",
     "index.html": "/challenge3-compass/index.html",
     "main.1d066218.css.map": "/challenge3-compass/static/css/main.1d066218.css.map",
-    "main.8c057af9.js.map": "/challenge3-compass/static/js/main.8c057af9.js.map",
+    "main.49b77e2f.js.map": "/challenge3-compass/static/js/main.49b77e2f.js.map",
     "787.aa532e39.chunk.js.map": "/challenge3-compass/static/js/787.aa532e39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1d066218.css",
-    "static/js/main.8c057af9.js"
+    "static/js/main.49b77e2f.js"
   ]
 }
