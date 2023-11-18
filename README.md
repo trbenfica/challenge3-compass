@@ -6,13 +6,13 @@ Este projeto consiste no 3º desafio do programa de bolsas da Compass. O objetiv
 
 Clone este repositório:
 ```console
-$ git clone https://github.com/trbenfica/challenge3-compass.git
+git clone https://github.com/trbenfica/challenge3-compass.git
 ```
 Instale as dependências com:
 ```console
-$ npm install react react-dom react-router-dom hamburger-react typescript
+npm install react react-dom react-router-dom hamburger-react typescript
 ```
 Após, basta rodar com:
 ```console
-$ npm start
+npm start
 ```
