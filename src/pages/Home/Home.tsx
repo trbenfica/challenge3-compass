@@ -43,7 +43,7 @@ const Home: React.FC = (props) => {
         <div className={styles.pageRestaurants}>
           {loading && <div className={styles.pageLoader} />}
           {data && data.data.fitMes.edges.map((restaurant: Restaurant) => (
-            <a key={restaurant.node.objectId} href={`/challenge3-compass/restaurant/${restaurant.node.objectId}`}>
+            <a key={restaurant.node.objectId} href={`/restaurant/${restaurant.node.objectId}`}>
               <RestaurantCard
                 name={restaurant.node.name} 
                 image={dummyPhotos[restaurant.node.objectId]}

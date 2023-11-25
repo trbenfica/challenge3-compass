@@ -9,7 +9,7 @@ import {ReactNode, useState} from 'react';
 const Header: React.FC = () => {
 
   const [isOpen, setOpen] = useState<boolean>(false);
-  let signUpContent: ReactNode = <a className={styles.headerRightLogin} href="/challenge3-compass/login/">Sign In</a>;
+  let signUpContent: ReactNode = <a className={styles.headerRightLogin} href="/login/">Sign In</a>;
 
   const sessionToken = sessionStorage.getItem('userId');
   if(sessionToken !== null) {
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
 
   return(
     <header className={styles.header} data-testid='header'>
-      <a href='/challenge3-compass'>
+      <a href='/'>
         <img className={styles.headerImg} src={logo} alt="" />
       </a>
       <div className={styles.headerRight}>
@@ -27,7 +27,7 @@ const Header: React.FC = () => {
           <input type="text" placeholder='Enter item or restaurant you are looking for' />
           <img src={search} alt="" />
         </div>
-        <a href="/challenge3-compass/cart">
+        <a href="/cart">
           <img className={styles.headerRightBag} src={bag} alt="" />
         </a>
         {signUpContent}
@@ -35,9 +35,9 @@ const Header: React.FC = () => {
       <div className={styles.dropdown}>
         <Hamburger toggled={isOpen} toggle={setOpen} />
         {isOpen && (<div className={styles.dropdownContent}>
-            <a href='/challenge3-compass/home'><p>Home</p></a>
-            <a href='/challenge3-compass/login'><p>Sign in</p></a> 
-            <a href='/challenge3-compass/register'><p>Register</p></a>
+            <a href='/home'><p>Home</p></a>
+            <a href='/login'><p>Sign in</p></a> 
+            <a href='/register'><p>Register</p></a>
           </div>)
         }
       </div>
